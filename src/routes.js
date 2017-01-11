@@ -6,6 +6,7 @@ import Signup from './components/signup';
 import Shop from './components/shop';
 import Cart from './components/cart';
 import Admin from './components/admin/admin';
+import Settings from './components/settings/settings';
 
 const routes = [{
   path     : '/',
@@ -35,6 +36,10 @@ const routes = [{
     path     : '/admin',
     name     : 'admin',
     component: Admin
+  },{
+    path     : '/settings',
+    name     : 'settings',
+    component: Settings
   },
   
   { path: '*', redirect: { name: 'home' } }];
