@@ -22,7 +22,7 @@
     },
     data() {
       return {
-        message
+        message :'yabaloli'
       }
     },
     methods: {

@@ -9,40 +9,34 @@ import Admin from './components/admin/admin';
 import Settings from './components/settings/settings';
 
 const routes = [{
-  path     : '/',
-  name     : 'home',
+  path: '/',
+  name: 'home',
   component: Home
 }, {
-  path     : '/signin',
-  name     : 'signin',
+  path: '/signin',
+  name: 'signin',
   component: Signin
-},
-  {
-    path     : '/signup',
-    name     : 'signup',
-    component: Signup
-  },
-  {
-    path     : '/shop',
-    name     : 'shop',
-    component: Shop
-  },
-  {
-    path     : '/cart',
-    name     : 'cart',
-    component: Cart
-  },
-  {
-    path     : '/admin',
-    name     : 'admin',
-    component: Admin
-  },{
-    path     : '/settings',
-    name     : 'settings',
-    component: Settings
-  },
-  
-  { path: '*', redirect: { name: 'home' } }];
+}, {
+  path: '/signup',
+  name: 'signup',
+  component: Signup
+}, {
+  path: '/shop',
+  name: 'shop',
+  component: Shop
+}, {
+  path: '/cart',
+  name: 'cart',
+  component: Cart
+}, {
+  path: '/admin',
+  name: 'admin',
+  component: Admin
+}, {
+  path: '/settings',
+  name: 'settings',
+  component: Settings
+}, { path: '*', redirect: { name: 'home' } }];
 
 const router = new VueRouter({
   mode: 'history',
