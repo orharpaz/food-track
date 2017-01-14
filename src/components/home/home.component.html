@@ -12,11 +12,12 @@
               </button>
             </div>
             <div>
-              <input type="text" class="meal-input" name="meal-input" placeholder="Enter your food">
+              <input v-model="food" type="text" class="meal-input" name="meal-input" placeholder="Enter your food">
             </div>
+<!--@click="test(food)"-->
 
             <div class="input-approve flex justify-center">
-              <button type="button" class="btnOk">
+              <button type="button" class="btnOk" @click="test(food)">
               <i class="fa fa-check" aria-hidden="true"></i> 
               </button>
               <button type="button" class="btnPlus">

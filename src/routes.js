@@ -8,10 +8,11 @@ import Cart from './components/cart';
 import Admin from './components/admin/admin';
 import Settings from './components/settings/settings';
 import Feeling from './components/feeling/feeling';
+import Calendar from './components/calendar/calendar';
 
 const routes = [{
-  path     : '/',
-  name     : 'home',
+  path: '/',
+  name: 'home',
   component: Home
 },
 {
@@ -47,9 +48,14 @@ const routes = [{
     path     : '/settings',
     name     : 'settings',
     component: Settings
+  },{
+    path     : '/calendar',
+    name     : 'calendar',
+    component: Calendar
   },
   
   { path: '*', redirect: { name: 'home' } }];
+
 
 const router = new VueRouter({
   mode: 'history',

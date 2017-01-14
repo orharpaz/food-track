@@ -1,157 +1,101 @@
 <template lang="html">
+   <section class="feeling container below-nav">
+      <h1>feeling Component</h1>
 
-
-  <section class="feeling container below-nav">
-    <h1>feeling Component</h1>
-
-
-
-    <div class="rating flex justify-center">
-      <span @click="starRate(1)">☆</span>
-      <span @click="starRate(2)">☆</span>
-      <span @click="starRate(3)">☆</span>
-      <span @click="starRate(4)">☆</span>
-      <span @click="starRate(5)">☆</span>
-
-    <!--<span @click="1">☆</span>
-    <button @click="1">☆</button>
-    <span @click="2">☆</span>
-    <span @click="">☆</span>
-    <span @click="">☆</span>
-    <span @click="">☆</span>-->
+    <div class="star-rating flex justify-center">
+        <label class="star-rating__star" v-for="rating in ratings" 
+          v-bind:class="{'is-selected': ((value >= rating) && value != null), 'is-disabled': disabled}"
+          v-on:mouseover="star_over(rating)" 
+          v-on:mouseout="star_out"  
+          v-on:click="set(rating)">
+            <input
+                    class="star-rating star-rating__checkbox"
+                    type="radio"
+                    v-bind:name="name"
+                    v-bind:value="rating"
+                    v-bind:required="required"
+                    v-bind:id="$index+1"
+                    v-bind:disabled="disabled"
+                    v-model="value"
+                    >
+                    <span >
+                      <i class="fa fa-star-o singlStar" aria-hidden="true"></i>
+                   </span>
+                     <!--❤-->
+        </label>
     </div>
-
-    <div class="ratingStar flex justify-center">
-      <span >
-        <i class="fa fa-star-o singlStar" aria-hidden="true"></i>
-      </span>
-      <span>
-        <i class="fa fa-star-o singlStar" aria-hidden="true"></i>
-      </span>
-      <span>
-        <i class="fa fa-star-o singlStar" aria-hidden="true"></i>
-      </span>
-      <span>
-        <i class="fa fa-star-o singlStar" aria-hidden="true"></i>
-      </span>
-      <span>
-        <i class="fa fa-star-o singlStar" aria-hidden="true"></i>
-      </span>
-      
-    </div>
-  </section>
-
 </template>
 
-<script lang="js">
-  // import authService from '../../services/auth.service';
-
-
-  export default  {
-    name: 'feeling',
-    props: [],
-    // beforeRouteEnter ( to, from, next ) {
-    //   authService.protectRoute(next);
-    // },    
-    mounted() {
-
-    },
-    data() {
-      return {
-
-      }
-    },
-    methods: {
-        // function starRate()
-    },
-    computed: {
-
+<script>
+    export default {  name: 'feeling-rating',
+        data() {
+            return {
+                temp_value: null,
+                ratings:  5,
+                value: null
+            };
+        },
+        props: {
+            name: String,
+            id: String,
+            disabled: String,
+            required: Boolean
+        },
+        methods: {
+            star_over(index) {
+                if (this.disabled == "true") {
+                    return;
+                }
+                this.temp_value = this.value;
+                this.value = index;
+            },
+            star_out() {
+                if (this.disabled == "true") {
+                    return;
+                }
+                this.value = this.temp_value;
+            },
+            set(value) {
+                if (this.d== "true") {
+                    return;
+                }
+                this.temp_value = value;
+                this.value = value;
+                this.$emit('submitRating', value)
+            },
+        }
     }
-}
 </script>
 
-<style scoped lang="scss">
-
-
-.rating {
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  text-align: center;
-   font-size: 5rem;
-  
-}
-.rating > span {
-  display: inline-block;
-  position: relative;
-  width: 1.1em;
-}
-.rating > *:hover,
-.rating > *:hover ~ span,
-.rating:not(:hover) > input:checked ~ span {
-  color: transparent;
-}
-.rating > *:hover:before,
-.rating > *:hover ~ span:before,
-.rating:not(:hover) > input:checked ~ span:before {
-   content: "\2605";
-   position: absolute;
-   left: 0; 
-   color: gold;
-}
-
-.rating > input {
-   margin-left:-1.1em;
-   margin-right:0;
-   top:3px;
-   width:1.1em;
-   height:1.1em;
-   position:relative;
-   z-index:2;
-   opacity:0;
-}
-body { padding: 100px; }
-
-/********************/
-
-
-/*
-.ratingStar {
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  text-align: center;
-   font-size: 5rem;
-  
-}
-.ratingStar > span {
-  display: inline-block;
-  position: relative;
-  width: 1.1em;
-}
-.ratingStar > *:hover,
-.ratingStar > *:hover ~ span,
-.ratingStar:not(:hover) > input:checked ~ span {
-  color: blue;
-}
-.ratingStar > *:hover:before,
-.ratingStar > *:hover ~ span:before,
-.ratingStar:not(:hover) > input:checked ~ span:before {
-   content: "\f006";
-   position: absolute;
-   left: 0; 
-   color: orangered;
-}
-
-.ratingStar > input {
-   margin-left:-1.1em;
-   margin-right:0;
-   top:3px;
-   width:1.1em;
-   height:1.1em;
-   position:relative;
-   z-index:2;
-   opacity:0;
-}
-body { padding: 100px; }*/
-
-
+<style>
+    .star-rating__checkbox {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+      
+    }
+    .star-rating__star {
+        display: inline-block;
+        padding: 3px;
+        vertical-align: middle;
+        line-height: 1;
+        font-size: 5em;
+        color: #ABABAB;
+        -webkit-transition: color;
+        transition: color;
+    }
+    .star-rating__star:hover {
+        cursor: pointer;
+    }
+    .star-rating__star.is-selected {
+        color: gold;
+    }
+    .star-rating__star.is-disabled:hover {
+        cursor: default;
+    }
 </style>
