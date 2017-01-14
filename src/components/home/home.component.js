@@ -41,6 +41,7 @@ export default {
       let foodJson = {name: meal};
       let json = JSON.stringify(foodJson)
       console.log('my json',json)
+      this.meal=[];
       
       this.$http.post('http://localhost:3003/data/food', json).then((res) => {
         console.log('success',res.json());
