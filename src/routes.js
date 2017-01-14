@@ -10,12 +10,12 @@ import Settings from './components/settings/settings';
 import Calendar from './components/calendar/calendar';
 
 const routes = [{
-  path     : '/',
-  name     : 'home',
+  path: '/',
+  name: 'home',
   component: Home
 }, {
-  path     : '/signin',
-  name     : 'signin',
+  path: '/signin',
+  name: 'signin',
   component: Signin
 },
   {
@@ -48,6 +48,7 @@ const routes = [{
   },
   
   { path: '*', redirect: { name: 'home' } }];
+
 
 const router = new VueRouter({
   mode: 'history',
