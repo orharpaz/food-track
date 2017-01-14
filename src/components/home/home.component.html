@@ -7,20 +7,18 @@
           <!--<img class="img-responsive" src="~assets/profile.png" alt="">-->
           <div class="intro-text">
             <div>
-              <button type="button" class="btnMic">
+              <button type="button" class="btnMic" @click="startVoiceRecognition">
                 <i class="fa fa-microphone icon-large"></i>
               </button>
             </div>
             <div>
-              <input v-model="food" type="text" class="meal-input" name="meal-input" placeholder="Enter your food">
+              <input v-model="currFood" type="text" class="meal-input" name="meal-input" placeholder="Enter your food">
             </div>
-<!--@click="test(food)"-->
-
             <div class="input-approve flex justify-center">
-              <button type="button" class="btnOk" @click="test(food)">
+              <button type="button" class="btnOk" @click="submitMeal(meal)">
               <i class="fa fa-check" aria-hidden="true"></i> 
               </button>
-              <button type="button" class="btnPlus">
+              <button type="button" class="btnPlus" @click="addFood()">
               <i class="fa fa-plus" aria-hidden="true"></i> 
               </button>
 
