@@ -1,3 +1,4 @@
+import moment from 'moment';
 export default {
   data: () => {
     return {
@@ -16,7 +17,7 @@ export default {
       else this.meal.push(this.currFood)
     },
     submitMeal(meal) {
-      let foodJson = {name: meal, time: Date.now()};
+      let foodJson = {name: meal, time: moment()};
       let json = JSON.stringify(foodJson)
       console.log('my json',json)
       this.meal=[];
@@ -31,6 +32,9 @@ export default {
 
     }
   },
+  components: {
+     moment
+},
   mounted() {
         if (!('webkitSpeechRecognition' in window)) {
             console.log('webkitSpeechRecognition not supported');
