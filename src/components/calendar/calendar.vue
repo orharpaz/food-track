@@ -17,6 +17,7 @@
         data: () => {
             return {
 
+
                 meals: [{
                     id: "1",
                     title: "Banana, Apple",
@@ -26,7 +27,7 @@
                     backgroundColor: "#ff0000"
                 }],
 
-                
+
 
             }
         },
@@ -37,6 +38,15 @@
             moment,
             jquery,
             FullCalendar
+        },
+        created() {
+
+            // this.$http.get('http://localhost:3003/data/food').then((response) => {
+            //     console.log('the ans is:', response.json());
+            // }, (response) => {
+            //     console.log('error');
+            // });
+
         },
         mounted() {
             $('.calendar').fullCalendar({
@@ -53,10 +63,20 @@
                     },
                     agendaWeek: {
                         titleFormat: 'YYYY, MM, DD'
-                    }
+                    },
                 },
                 events: this.meals,
-            })
+            }),
+                this.$http.get('http://localhost:3003/data/food').then((response) => {
+                    console.log('the ans is:', response.json())
+                   console.log('new: ',JSON.stringify(response)); 
+        
+                    // response.json()
+                //     .then(meals => this.meals = meals);
+                // }, (response) => {
+                //     console.log('error');
+                });
+
         }
     }
 </script>

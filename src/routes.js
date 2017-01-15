@@ -7,15 +7,22 @@ import Shop from './components/shop';
 import Cart from './components/cart';
 import Admin from './components/admin/admin';
 import Settings from './components/settings/settings';
+import Feeling from './components/feeling/feeling';
 import Calendar from './components/calendar/calendar';
 
 const routes = [{
   path: '/',
   name: 'home',
   component: Home
-}, {
-  path: '/signin',
-  name: 'signin',
+},
+{
+  path     : '/feeling',
+  name     : 'feeling',
+  component: Feeling
+}, 
+{
+  path     : '/signin',
+  name     : 'signin',
   component: Signin
 },
   {
