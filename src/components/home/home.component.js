@@ -38,7 +38,7 @@ export default {
       else this.meal.push(this.currFood)
     },
     submitMeal(meal) {
-      let foodJson = {name: meal};
+      let foodJson = {name: meal, time: Date.now()};
       let json = JSON.stringify(foodJson)
       console.log('my json',json)
       this.meal=[];
