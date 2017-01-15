@@ -5,28 +5,6 @@ export default {
       meal:[]
     }
   },
-  //try
-//   methods:{
-//     onYourAddFood(){
-//         if(this.currFood === '') return
-//         .
-//         .
-//         .
-//         .
-//     },
-//     onYourSubmitMeal(){
-//         .
-//         .
-//         .
-//         this.isRec = false;
-//         this.recognition.stop();
-//     },
-//     toogleSpeechReco(){
-//                 if(this.isRec) this.recognition.stop();
-//                 else this.recognition.start();
-//             }
-// },
-
   methods: {
     startVoiceRecognition(){
       console.log('start voice rec');
@@ -38,7 +16,7 @@ export default {
       else this.meal.push(this.currFood)
     },
     submitMeal(meal) {
-      let foodJson = {name: meal};
+      let foodJson = {name: meal, time: Date.now()};
       let json = JSON.stringify(foodJson)
       console.log('my json',json)
       this.meal=[];
