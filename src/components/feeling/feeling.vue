@@ -55,7 +55,27 @@
         this.value = this.temp_value;
       },
       set(value) {
-        let feelingJson = { rating: value };
+        let color = '';
+        switch (value) {
+          case 1:
+          color = "#ff0000";
+            break;
+          case 2:
+            color = "#ff9411";
+            break;
+          case 3:
+             color = "#fff500";
+            break;
+          case 4:
+             color = "#CAFE48";
+            break;
+          case 5:
+             color = "#006600";
+            break;
+
+        }
+
+        let feelingJson = { rating: value, color :color, time: moment()};
         let json = JSON.stringify(feelingJson)
 
         console.log('set submit', value);

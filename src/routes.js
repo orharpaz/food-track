@@ -9,6 +9,9 @@ import Admin from './components/admin/admin';
 import Settings from './components/settings/settings';
 import Feeling from './components/feeling/feeling';
 import Calendar from './components/calendar/calendar';
+import GlobalStats from './components/global-stats/global-stats';
+import UserStats from './components/user-stats/user-stats';
+
 
 const routes = [{
   path: '/',
@@ -52,7 +55,15 @@ const routes = [{
     path     : '/calendar',
     name     : 'calendar',
     component: Calendar
-  },
+  },{
+  path     : '/globalstats',
+  name     : 'globalStats',
+  component: GlobalStats
+}, {
+  path     : '/userstats',
+  name     : 'userStats',
+  component:  UserStats
+}, 
   
   { path: '*', redirect: { name: 'home' } }];
 

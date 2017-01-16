@@ -25,7 +25,8 @@
                 //     allDay: false,
                 //     backgroundColor: "#ff0000"
                 // }],
-                meals: []
+                meals: [],
+                feeling: []
 
             }
         },
@@ -46,8 +47,8 @@
             // });
 
         },
-    mounted() {
-      $('.calendar').fullCalendar({
+        mounted() {
+            $('.calendar').fullCalendar({
                 // put your options and callbacks here
 
                 // hiddenDays: [  4, 5,6 ], //choose which days to hide
@@ -63,29 +64,53 @@
                         titleFormat: 'YYYY, MM, DD'
                     },
                 },
-                events: this.meals,
+                events: [...this.meals, ...this.feeling],
+
+
             }),
+
                 this.$http.get('http://localhost:3003/data/food').then((response) => {
                     // let jsonStr = JSON.stringify(response);
                     // console.log('the ans is:', jsonStr)
                     let mealObjectsArr = response.body;
-                    let mealsInCalendar = mealObjectsArr.map(function(meal){
+                    let mealsInCalendar = mealObjectsArr.map(function (meal) {
                         return {
-                        id: meal._id,
-                        title: meal.name,
-                        start: moment(meal.time).format(),
-                        end: moment(meal.time).add(15,'minutes').format(),
-                        allDay: false,
-                        backgroundColor: "#ff0000"
+                            id: meal._id,
+                            title: meal.name,
+                            start: moment(meal.time).format(),
+                            end: moment(meal.time).add(60, 'minutes').format(),
+                            allDay: false,
+                            // backgroundColor: "#ff0000"
                         };
                     })
                     this.meals = mealsInCalendar;
-                    $('.calendar').fullCalendar('removeEvents');
+                    // $('.calendar').fullCalendar('removeEvents');
                     $('.calendar').fullCalendar('addEventSource', this.meals);
                     $('.calendar').fullCalendar('rerenderEvents');
 
                     // this.meals = event;
                 });
+            //Get Feeling
+            this.$http.get('http://localhost:3003/data/feeling').then((response) => {
+                // let jsonStr = JSON.stringify(response);
+                // console.log('the ans is:', jsonStr)
+                let feelingObjectsArr = response.body;
+                let feelingInCalendar = feelingObjectsArr.map(function (feeling) {
+                    return {
+                        id: feeling._id,
+                        backgroundColor: feeling.color,
+                        start: moment(feeling.time).format(),
+                        end: moment(feeling.time).add(1, 'hour').format(),
+                        allDay: false,
+                    };
+                })
+                this.feeling = feelingInCalendar;
+                // $('.calendar').fullCalendar('removeEvents');
+                $('.calendar').fullCalendar('addEventSource', this.feeling);
+                $('.calendar').fullCalendar('rerenderEvents');
+
+                //     // this.meals = event;
+            });
         }
     }
 </script>
