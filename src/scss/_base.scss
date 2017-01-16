@@ -17,8 +17,25 @@ html {
 
 a {
   color: currentColor;
-  text-decoration: none;
+  // text-decoration: none;
   display: inline-block;
+}
+ 
+a:link {
+    text-decoration: none;
+}
+
+// a:visited {
+//     text-decoration: none;
+//     // color: initial;
+// }
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
 }
 
 ul,

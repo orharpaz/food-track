@@ -9,6 +9,7 @@ import Admin from './components/admin/admin';
 import Settings from './components/settings/settings';
 import Feeling from './components/feeling/feeling';
 import Calendar from './components/calendar/calendar';
+import AddButtons from './components/add-buttons/add-buttons';
 
 const routes = [{
   path: '/',
@@ -53,6 +54,11 @@ const routes = [{
     name     : 'calendar',
     component: Calendar
   },
+  {
+  path     : '/add-buttons',
+  name     : 'add-buttons',
+  component: AddButtons
+}, 
   
   { path: '*', redirect: { name: 'home' } }];
 

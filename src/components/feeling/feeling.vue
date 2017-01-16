@@ -1,7 +1,7 @@
 <template lang="html">
   <section class="feeling container below-nav">
-    <h1>feeling Component</h1>
 
+    <h3 class="rate-header flex justify-center ">Rate your Feeling</h3>
     <div class="star-rating flex justify-center">
       <label class="star-rating__star" v-for="rating in ratings" v-bind:class="{'is-selected': ((value >= rating) && value != null), 'is-disabled': disabled}"
         v-on:mouseover="star_over(rating)" v-on:mouseout="star_out">
@@ -21,6 +21,7 @@
                    </span>
                    
         </label>
+         <add-buttons></add-buttons>
     </div>
 </template>
 
@@ -74,6 +75,9 @@
 </script>
 
 <style>
+.star-rating{
+  margin: 10px 10px 10px 0px;
+}
     .star-rating__checkbox {
         position: absolute;
         overflow: hidden;
@@ -89,8 +93,9 @@
         display: inline-block;
         padding: 3px;
         vertical-align: middle;
+        /*justify-content: center;*/
         line-height: 1;
-        font-size: 5em;
+        font-size: 3em;
         color: #ABABAB;
         -webkit-transition: color;
         transition: color;

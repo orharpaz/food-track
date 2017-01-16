@@ -2,8 +2,10 @@
     <section class="admin container below-nav">
         <h1>Meals Calendar</h1>
         <div class="calendar"></div>
+    <div>
+     <add-buttons></add-buttons>
+    </div>
     </section>
-
 </template>
 
 <script lang="js">
