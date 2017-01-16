@@ -1,62 +1,43 @@
-
+import moment from 'moment';
 import AddButtons from '../add-buttons/add-buttons';
-
 export default {
-    data: () => {
-        return {
-            currFood: '',
-            meal: []
-        }
+  data: () => {
+    return {
+      currFood:'',
+      meal:[]
+    }
+  },
+  methods: {
+    startVoiceRecognition(){
+      console.log('start voice rec');
+      this.recognition.start()
     },
-    //try
-    //   methods:{
-    //     onYourAddFood(){
-    //         if(this.currFood === '') return
-    //         .
-    //         .
-    //         .
-    //         .
-    //     },
-    //     onYourSubmitMeal(){
-    //         .
-    //         .
-    //         .
-    //         this.isRec = false;
-    //         this.recognition.stop();
-    //     },
-    //     toogleSpeechReco(){
-    //                 if(this.isRec) this.recognition.stop();
-    //                 else this.recognition.start();
-    //             }
-    // },
-
-    methods: {
-        startVoiceRecognition() {
-            console.log('start voice rec');
-            this.recognition.start()
-        },
-        addFood() {
-            console.log('plus clicked');
-            if (this.currFood === '') return;
-            else this.meal.push(this.currFood)
-        },
-        submitMeal(meal) {
-            let foodJson = { name: meal, time: Date.now() };
-            let json = JSON.stringify(foodJson)
-            console.log('my json', json)
-            this.meal = [];
-
-            this.$http.post('http://localhost:3003/data/food', json).then((res) => {
-                console.log('success', res.json());
-                // success callback
-            }, (err) => {
-                // error callback
-                console.log('error');
-            });
-
-        }
+    addFood(){
+      console.log('plus clicked');
+      if(this.currFood ==='') return;
+      else this.meal.push(this.currFood)
     },
-    mounted() {
+    submitMeal(meal) {
+      let foodJson = {name: meal, time: moment()};
+      let json = JSON.stringify(foodJson)
+      console.log('my json',json)
+      this.meal=[];
+
+      this.$http.post('http://localhost:3003/data/food', json).then((res) => {
+        console.log('success',res.json());
+        // success callback
+      }, (err) => {
+        // error callback
+            console.log('error');
+      });
+
+    }
+  },
+  components: {
+         moment,
+        AddButtons
+},
+  mounted() {
         if (!('webkitSpeechRecognition' in window)) {
             console.log('webkitSpeechRecognition not supported');
         } else {
@@ -92,8 +73,5 @@ export default {
                 if (this.isRec) this.recognition.stop();
             }
         }
-    },
-    components: {
-        AddButtons
     }
 }

@@ -19,17 +19,16 @@
         data: () => {
             return {
 
-
-                meals: [{
-                    id: "1",
-                    title: "Banana, Apple",
-                    start: moment(1484210059985).format(),
-                    end: moment(1484263059985).format(),
-                    allDay: false,
-                    backgroundColor: "#ff0000"
-                }],
-
-
+                // meals: [{
+                //     id: "1",
+                //     title: "Banana, Apple",
+                //     start: moment(1484512106703).format(),
+                //     end: moment(1484512121736).format(),
+                //     allDay: false,
+                //     backgroundColor: "#ff0000"
+                // }],
+                meals: [],
+                feeling: []
 
             }
         },
@@ -67,18 +66,53 @@
                         titleFormat: 'YYYY, MM, DD'
                     },
                 },
-                events: this.meals,
-            }),
-                this.$http.get('http://localhost:3003/data/food').then((response) => {
-                    console.log('the ans is:', response.json())
-                   console.log('new: ',JSON.stringify(response)); 
-        
-                    // response.json()
-                //     .then(meals => this.meals = meals);
-                // }, (response) => {
-                //     console.log('error');
-                });
+                events: [...this.meals, ...this.feeling],
 
+
+            }),
+
+                this.$http.get('http://localhost:3003/data/food').then((response) => {
+                    // let jsonStr = JSON.stringify(response);
+                    // console.log('the ans is:', jsonStr)
+                    let mealObjectsArr = response.body;
+                    let mealsInCalendar = mealObjectsArr.map(function (meal) {
+                        return {
+                            id: meal._id,
+                            title: meal.name,
+                            start: moment(meal.time).format(),
+                            end: moment(meal.time).add(60, 'minutes').format(),
+                            allDay: false,
+                            // backgroundColor: "#ff0000"
+                        };
+                    })
+                    this.meals = mealsInCalendar;
+                    // $('.calendar').fullCalendar('removeEvents');
+                    $('.calendar').fullCalendar('addEventSource', this.meals);
+                    $('.calendar').fullCalendar('rerenderEvents');
+
+                    // this.meals = event;
+                });
+            //Get Feeling
+            this.$http.get('http://localhost:3003/data/feeling').then((response) => {
+                // let jsonStr = JSON.stringify(response);
+                // console.log('the ans is:', jsonStr)
+                let feelingObjectsArr = response.body;
+                let feelingInCalendar = feelingObjectsArr.map(function (feeling) {
+                    return {
+                        id: feeling._id,
+                        backgroundColor: feeling.color,
+                        start: moment(feeling.time).format(),
+                        end: moment(feeling.time).add(1, 'hour').format(),
+                        allDay: false,
+                    };
+                })
+                this.feeling = feelingInCalendar;
+                // $('.calendar').fullCalendar('removeEvents');
+                $('.calendar').fullCalendar('addEventSource', this.feeling);
+                $('.calendar').fullCalendar('rerenderEvents');
+
+                //     // this.meals = event;
+            });
         }
     }
 </script>

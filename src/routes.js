@@ -10,6 +10,9 @@ import Settings from './components/settings/settings';
 import Feeling from './components/feeling/feeling';
 import Calendar from './components/calendar/calendar';
 import AddButtons from './components/add-buttons/add-buttons';
+import GlobalStats from './components/global-stats/global-stats';
+import UserStats from './components/user-stats/user-stats';
+
 
 const routes = [{
   path: '/',
@@ -58,6 +61,14 @@ const routes = [{
   path     : '/add-buttons',
   name     : 'add-buttons',
   component: AddButtons
+  },{
+  path     : '/globalstats',
+  name     : 'globalStats',
+  component: GlobalStats
+}, {
+  path     : '/userstats',
+  name     : 'userStats',
+  component:  UserStats
 }, 
   
   { path: '*', redirect: { name: 'home' } }];
