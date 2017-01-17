@@ -178,7 +178,7 @@ header .intro-text .skills {
   font-size:2rem;
   padding-left:10px;
 }
-@media (max-width: 400px) {
+@media (max-width: 375px) {
   .home{
     max-width: 100%; 
   }
@@ -303,7 +303,7 @@ section.success {
 #portfolio .portfolio-item .portfolio-link {
   display: block;
   position: relative;
-  max-width: 400px;
+  max-width: 375px;
   margin: 0 auto;
 }
 #portfolio .portfolio-item .portfolio-link .caption {

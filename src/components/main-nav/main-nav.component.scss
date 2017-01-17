@@ -3,56 +3,24 @@
 }
 
 
-ul.dropdown-cart{
-  width: 500px;
-  min-width:250px;
-}
-ul.dropdown-cart li .item{
-  display:block;
-  padding:3px 10px;
-  margin: 3px 0;
-}
-ul.dropdown-cart li .item:hover{
-  background-color:#f3f3f3;
-}
-ul.dropdown-cart li .item:after{
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
-}
+// ul.dropdown-cart li .item:after{
+//   visibility: hidden;
+//   display: block;
+//   font-size: 0;
+//   content: " ";
+//   clear: both;
+//   height: 0;
+// }
 
-ul.dropdown-cart li .item-left{
-  float:left;
-}
-ul.dropdown-cart li .item-left img,
-ul.dropdown-cart li .item-left span.item-info{
-  float:left;
-}
-ul.dropdown-cart li .item-left span.item-info{
-  margin-left:10px;
-}
-ul.dropdown-cart li .item-left span.item-info span{
-  display:block;
-}
-ul.dropdown-cart li .item-right{
-  float:right;
-}
-ul.dropdown-cart li .item-right button{
-  margin-top:14px;
-}
+// ul.nav li.dropdown:hover > ul.dropdown-menu {
+//   display: block;
+// }
 
-ul.nav li.dropdown:hover > ul.dropdown-menu {
-  display: block;
-}
-
-@media (min-width: 979px) {
-  ul.nav li.dropdown:hover > ul.dropdown-menu {
-    display: block;
-  }
-}
+// @media (min-width: 979px) {
+//   ul.nav li.dropdown:hover > ul.dropdown-menu {
+//     display: block;
+//   }
+// }
 
 
 .navbar {
@@ -89,26 +57,44 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   height: 80px;
   display: inline-block
 }
+.isMenuShown{
+  display:none;
+}
+.nav-bar-mobile{
+  display: none;
+}
+.icon-desktop{
+  display:block;
+}
 
 
-@media (max-width: 400px) {
+@media (max-width: 375px) {
   .navbar{
     width:100%;
   }
+
+  .nav-bar-mobile{
+    display:block;
+  }
+
+ .icon-desktop{
+  display:none;
 }
+}
+
 // <kjsdhfbkj>
 
-// @import '../../scss/_vars';
+@import '../../scss/_vars';
 
-// .main-nav {
-//   --main-nav-height: em(70px);  
-//   height: var(--main-nav-height);
-// }
+.main-nav {
+  --main-nav-height: em(70px);  
+  height: var(--main-nav-height);
+}
 
-// .main-nav__mobile-icon,
-// #main-nav__mobile-checkbox {
-//   display: none;
-// }
+.main-nav__mobile-icon,
+#main-nav__mobile-checkbox {
+  display: none;
+}
 
 // .main-nav__item {
 //   text-transform: uppercase;
