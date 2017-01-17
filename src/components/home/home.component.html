@@ -1,12 +1,34 @@
  <section class="home container below-nav">
-  <div class="stam flex justify-center">
-    <!-- Header -->
-    <header>
-      <div class="container flex justify-center">
-        <div class="row">
-          <div class="col-lg-12">
-            <!--<img class="img-responsive" src="~assets/profile.png" alt="">-->
-            <div class="intro-text">
+
+<div class="stam flex justify-center">
+  <!-- Header -->
+  <header>
+    <div class="container flex justify-center">
+      <div class="row">
+        <div class="col-lg-12">
+          <!--<img class="img-responsive" src="~assets/profile.png" alt="">-->
+          <div class="intro-text">
+            <!--<div>-->
+              <!--<button type="button" class="btnMic" @click="startVoiceRecognition">
+                <i class="fa fa-microphone icon-large"></i>
+              </button>
+            </div>
+            <div>
+              <input v-model="currFood" type="text" class="meal-input" name="meal-input" placeholder="Enter your food">
+            </div>
+            <div class="input-approve flex justify-center">
+              <button type="button" class="btnOk" @click="submitMeal(meal)">
+              <i class="fa fa-check" aria-hidden="true"></i> 
+              </button>
+              <button type="button" class="btnPlus" @click="addFood()">
+              <i class="fa fa-plus" aria-hidden="true"></i> 
+              </button>
+            </div>
+            <div>
+                <button type="button" class="add-feel-btn"> <router-link :to="{name: 'feeling'}">How Do You Feel?</router-link></Sbutton>
+              </div>
+            <section class="add-buttons flex space-around">-->
+
               <div>
                 <button type="button" class="btnMic" @click="startVoiceRecognition">
                   <i class="fa fa-microphone icon-large"></i>
