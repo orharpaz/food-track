@@ -1,9 +1,9 @@
 <template lang="html">
 
   <section class="admin container below-nav">
-    <h1>Settings Component</h1>
-    <input v-model="message" placeholder="edit me">
-      <p>Message is: {{ message }}</p>
+    <h1>Settings</h1>
+    <!--<input v-model="message" placeholder="edit me">
+      <p>Message is: {{ message }}</p>-->
 
     <div class="switch flex justify-center">
       <p>Send Push Notifications?</p>
@@ -28,7 +28,7 @@
     },
     data() {
       return {
-        message: 'yabaloli'
+        // message: 'yabaloli'
       }
     },
     methods: {
