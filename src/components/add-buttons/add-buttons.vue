@@ -40,6 +40,7 @@
 
 .add-buttons{
  padding: 0 60px 0 60px;
+ margin-top: 20px;
   
 }
 .add-meal-btn{
@@ -54,6 +55,9 @@
 .add-meal-btn:active{
    box-shadow: inset -12px 12px 19px -2px rgba(249, 249, 249, 0.85);
   
+}
+.add-meal-btn:hover{
+    color:white;
 }
 .add-feel-btn{
   background-color: #18BC9C;

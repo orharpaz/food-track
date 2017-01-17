@@ -11,6 +11,8 @@
 <script lang="js">
     import moment from 'moment';
     import jquery from 'jquery';
+    import AddButtons from '../add-buttons/add-buttons';
+
     // window.jQuery = jQuery;
     var $ = window.jQuery = require('jquery');
     import FullCalendar from 'fullcalendar';
@@ -38,7 +40,8 @@
         components: {
             moment,
             jquery,
-            FullCalendar
+            FullCalendar,
+            AddButtons
         },
         created() {
 
