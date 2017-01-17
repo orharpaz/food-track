@@ -15,10 +15,12 @@ Vue.http.options.root = 'http://localhost:3003';
 const app = new Vue({
   router,
   store,
+  
   components: {
     MainNav,
     MainFooter,
     AddButtons
+
   }
 }).$mount('#app');
 
