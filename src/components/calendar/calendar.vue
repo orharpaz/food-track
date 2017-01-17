@@ -2,13 +2,17 @@
     <section class="admin container below-nav">
         <h1>Meals Calendar</h1>
         <div class="calendar"></div>
+    <div>
+     <add-buttons></add-buttons>
+    </div>
     </section>
-
 </template>
 
 <script lang="js">
     import moment from 'moment';
     import jquery from 'jquery';
+    import AddButtons from '../add-buttons/add-buttons';
+
     // window.jQuery = jQuery;
     var $ = window.jQuery = require('jquery');
     import FullCalendar from 'fullcalendar';
@@ -36,7 +40,8 @@
         components: {
             moment,
             jquery,
-            FullCalendar
+            FullCalendar,
+            AddButtons
         },
         created() {
 

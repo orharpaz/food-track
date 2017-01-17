@@ -1,8 +1,9 @@
 <template lang="html">
 
-  <section class="feeling container below-nav">
-    <h1>feeling Component</h1>
+  <section class="feeling below-nav">
 
+
+    <h3 class="rate-header flex justify-center ">Rate your Feeling</h3>
     <div class="star-rating flex justify-center">
       <label class="star-rating__star" v-for="rating in ratings" v-bind:class="{'is-selected': ((value >= rating) && value != null), 'is-disabled': disabled}"
         v-on:mouseover="star_over(rating)" v-on:mouseout="star_out">
@@ -21,14 +22,15 @@
                       <i class="fa fa-star singlStar" aria-hidden="true"></i>
                    </span>
                    
-      </label>
-    
 
-   
+        </label>
 
+    </div>
 
+    <div class="feel-mealbtn flex justify-center">
+      <button type="button" class="add-meal-btn"><router-link :to="{name: 'home'}">Add a Meal</router-link></button>
+    </div>
 
-  </section>
 </template>
 
 <script>
@@ -109,35 +111,54 @@
 </script>
 
 <style>
-    .star-rating__checkbox {
-        position: absolute;
-        overflow: hidden;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        width: 1px;
-        margin: -1px;
-        padding: 0;
-        border: 0;
-      
-    }
-    .star-rating__star {
-        display: inline-block;
-        padding: 3px;
-        vertical-align: middle;
-        line-height: 1;
-        font-size: 5em;
-        color: #ABABAB;
-        -webkit-transition: color;
-        transition: color;
-    }
-    .star-rating__star:hover {
-        cursor: pointer;
-    }
-    .star-rating__star.is-selected {
-        color: gold;
-    }
-    .star-rating__star.is-disabled:hover {
-        cursor: default;
-    }
+
+.star-rating{
+  margin: 10px 10px 10px 0px;
+}
+.star-rating__checkbox {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+  
+}
+.star-rating__star {
+    display: inline-block;
+    padding: 3px;
+    vertical-align: middle;
+    /*justify-content: center;*/
+    line-height: 1;
+    font-size: 3em;
+    color: #ABABAB;
+    -webkit-transition: color;
+    transition: color;
+}
+.star-rating__star:hover {
+    cursor: pointer;
+}
+.star-rating__star.is-selected {
+    color: gold;
+}
+.star-rating__star.is-disabled:hover {
+    cursor: default;
+}
+
+.add-meal-btn{
+  background-color: #FF9800;
+  color:white;
+  border-radius: 50%;
+  width: 5em;
+  height:5em;
+  font-size: 1.5rem;
+  /*margin: 100px;*/
+}
+.add-meal-btn:active{
+   box-shadow: inset -12px 12px 19px -2px rgba(249, 249, 249, 0.85);
+}
+
 
 </style>
