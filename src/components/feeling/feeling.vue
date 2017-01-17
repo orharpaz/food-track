@@ -1,4 +1,5 @@
 <template lang="html">
+
   <section class="feeling container below-nav">
     <h1>feeling Component</h1>
 
@@ -20,14 +21,23 @@
                       <i class="fa fa-star singlStar" aria-hidden="true"></i>
                    </span>
                    
-        </label>
-    </div>
+      </label>
+    
+
+   
+
+
+
+  </section>
 </template>
 
 <script>
   import moment from 'moment';
+
+
   export default {
     name: 'feeling-rating',
+
     data() {
       return {
         temp_value: null,
@@ -35,6 +45,7 @@
         value: null
       };
     },
+
     props: {
       name: String,
       id: String,
@@ -42,6 +53,8 @@
       required: Boolean
     },
     methods: {
+     
+
       star_over(index) {
         if (this.disabled == "true") {
           return;
@@ -88,8 +101,9 @@
           // error callback
           console.log('error');
         });
+        alert("Thank's for rating");
       }
-    }
+    },
   }
 
 </script>
@@ -125,4 +139,5 @@
     .star-rating__star.is-disabled:hover {
         cursor: default;
     }
+
 </style>
