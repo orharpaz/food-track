@@ -8,28 +8,9 @@
         <div class="col-lg-12">
           <!--<img class="img-responsive" src="~assets/profile.png" alt="">-->
           <div class="intro-text">
-            <!--<div>-->
-              <!--<button type="button" class="btnMic" @click="startVoiceRecognition">
-                <i class="fa fa-microphone icon-large"></i>
-              </button>
-            </div>
-            <div>
-              <input v-model="currFood" type="text" class="meal-input" name="meal-input" placeholder="Enter your food">
-            </div>
-            <div class="input-approve flex justify-center">
-              <button type="button" class="btnOk" @click="submitMeal(meal)">
-              <i class="fa fa-check" aria-hidden="true"></i> 
-              </button>
-              <button type="button" class="btnPlus" @click="addFood()">
-              <i class="fa fa-plus" aria-hidden="true"></i> 
-              </button>
-            </div>
-            <div>
-                <button type="button" class="add-feel-btn"> <router-link :to="{name: 'feeling'}">How Do You Feel?</router-link></Sbutton>
-              </div>
-            <section class="add-buttons flex space-around">-->
-
-              <div>
+          
+            
+              <div class= "flex justify-center">
                 <button type="button" class="btnMic" @click="startVoiceRecognition">
                   <i class="fa fa-microphone icon-large"></i>
                 </button>
@@ -40,8 +21,9 @@
                 <i class="fa fa-plus" aria-hidden="true"></i> 
                 </button>
               </div>
-           
+            <div class= "flex justify-center">
               <h1>Your Meal</h1>
+            </div>
               <ul class="list-group" >
                 <li v-for="food in meal" class="list-group-item">
                     {{food}}
@@ -50,12 +32,13 @@
                     </button>
                   </li>
               </ul>
+            
               <div class="input-approve flex justify-center">
               <button type="button" class="btn btn-primary" @click="submitMeal(meal)">
               <!--<i class="fa fa-check" aria-hidden="true"></i> -->
               Submit Meal
               </button>
-                
+              
               </div>
               <add-buttons></add-buttons>
               <!--<section class="add-buttons flex space-around">
