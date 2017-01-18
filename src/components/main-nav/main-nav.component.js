@@ -8,7 +8,8 @@ export default {
   data() {
     return {
       // windowWidth,
-      isShown: window.innerWidth > 375,
+      isShown: window.innerWidth > 360,
+      isOpen : false
 
     }
   },
@@ -18,10 +19,23 @@ export default {
     // } 
   },
   methods: {
+    closeDiv() {
+        console.dir(this.$refs.containDiv);
+        this.$refs.containDiv.style.transform = "scaleX(0)";
+        this.$refs.containDiv.style.opacity=  "0";
+    } ,
+    openDiv() {
+      this.isOpen = !this.isOpen;
+      if(this.isOpen) {
+        this.closeDiv();
+      } else {
+        this.$refs.containDiv.style.transform = "scaleX(1)";
+        this.$refs.containDiv.style.opacity=  "1";
+      }
+    } ,
     toggle() {
-      this.isShown = !this.isShown;
+      // this.isShown = !this.isShown;
       console.log('toggle?');
-      
     },
     signout() {
       authService.signout();
