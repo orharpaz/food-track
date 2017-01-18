@@ -2,9 +2,9 @@
     <section class="admin container below-nav">
         <h1>Meals Calendar</h1>
         <div class="calendar"></div>
-    <div>
-     <add-buttons></add-buttons>
-    </div>
+        <div>
+            <add-buttons></add-buttons>
+        </div>
     </section>
 </template>
 
@@ -12,7 +12,7 @@
     import moment from 'moment';
     import jquery from 'jquery';
     import AddButtons from '../add-buttons/add-buttons';
-    import {mapGetters, mapMutations} from 'vuex';
+    // import { mapGetters, mapMutations } from 'vuex';
 
     // window.jQuery = jQuery;
     var $ = window.jQuery = require('jquery');
@@ -45,85 +45,94 @@
             AddButtons
         },
 
-    //      computed: {
-    //   ...mapGetters([
-    //     'user'
-    //   ]),
-        created() {
+        // computed: {
+        //   ...mapGetters([
+        //     'user'
+        //   ]),
+            created() {
 
-            // this.$http.get('http://localhost:3003/data/food').then((response) => {
-            //     console.log('the ans is:', response.json());
-            // }, (response) => {
-            //     console.log('error');
-            // });
+                // this.$http.get('http://localhost:3003/data/food').then((response) => {
+                //     console.log('the ans is:', response.json());
+                // }, (response) => {
+                //     console.log('error');
+                // });
 
-        },
-        mounted() {
-            $('.calendar').fullCalendar({
-                // put your options and callbacks here
+            },
+            mounted() {
+                $('.calendar').fullCalendar({
+                    // put your options and callbacks here
 
-                // hiddenDays: [  4, 5,6 ], //choose which days to hide
-                // hiddenDays: [ 0, 1,2,3 ],
+                    // hiddenDays: [  4, 5,6 ], //choose which days to hide
+                    // hiddenDays: [ 0, 1,2,3 ],
 
-                header: { center: 'month, agendaWeek, listWeek' }, // buttons for switching between views
-                views: {
-                    month: { // name of view
-                        titleFormat: 'YYYY, MM, DD' // name of view
-                        // other view-specific options here
+                    header: { center: 'month, agendaWeek, listWeek' }, // buttons for switching between views
+                    views: {
+                        month: { // name of view
+                            titleFormat: 'YYYY, MM, DD' // name of view
+                            // other view-specific options here
+                        },
+                        agendaWeek: {
+                            titleFormat: 'YYYY, MM, DD'
+                        },
                     },
-                    agendaWeek: {
-                        titleFormat: 'YYYY, MM, DD'
-                    },
-                },
-                events: [...this.meals, ...this.feeling],
+                    events: [...this.meals, ...this.feeling],
 
 
-            }),
+                }),
+                    // console.log('user', this.user);
 
-                this.$http.get('http://localhost:3003/data/food').then((response) => {
-                    // let jsonStr = JSON.stringify(response);
-                    // console.log('the ans is:', jsonStr)
-                    let mealObjectsArr = response.body;
-                    let mealsInCalendar = mealObjectsArr.map(function (meal) {
-                        return {
-                            id: meal._id,
-                            title: meal.name,
-                            start: moment(meal.time).format(),
-                            end: moment(meal.time).add(60, 'minutes').format(),
-                            allDay: false,
-                            // backgroundColor: "#ff0000"
-                        };
-                    })
-                    this.meals = mealsInCalendar;
-                    // $('.calendar').fullCalendar('removeEvents');
-                    $('.calendar').fullCalendar('addEventSource', this.meals);
-                    $('.calendar').fullCalendar('rerenderEvents');
+                // , {credentials: 'include'}
 
-                    // this.meals = event;
-                });
-            //Get Feeling
-            this.$http.get('http://localhost:3003/data/feeling').then((response) => {
-                // let jsonStr = JSON.stringify(response);
-                // console.log('the ans is:', jsonStr)
-                let feelingObjectsArr = response.body;
-                let feelingInCalendar = feelingObjectsArr.map(function (feeling) {
-                    return {
-                        id: feeling._id,
-                        backgroundColor: feeling.color,
-                        start: moment(feeling.time).format(),
-                        end: moment(feeling.time).add(1, 'hour').format(),
-                        allDay: false,
-                    };
-                })
-                this.feeling = feelingInCalendar;
-                // $('.calendar').fullCalendar('removeEvents');
-                $('.calendar').fullCalendar('addEventSource', this.feeling);
-                $('.calendar').fullCalendar('rerenderEvents');
+           fetch('/data/food', {credentials: 'include'})//.then((respone) => {
+                    .then(res => res.json())
+                    .then((response) => {
+                        // let jsonStr = JSON.stringify(response);
+                        // console.log('the ans is:', jsonStr)
+                        // let mealObjectsArr = response.body;
+                        let mealsInCalendar = response.map(function (meal) {
+                            return {
+                                id: meal._id,
+                                title: meal.name,
+                                start: moment(meal.time).format(),
+                                end: moment(meal.time).add(60, 'minutes').format(),
+                                allDay: false,
+                                // backgroundColor: "#ff0000"
+                            };
+                        })
+                        this.meals = mealsInCalendar;
+                        // $('.calendar').fullCalendar('removeEvents');
+                        $('.calendar').fullCalendar('addEventSource', this.meals);
+                        $('.calendar').fullCalendar('rerenderEvents');
 
-                //     // this.meals = event;
-            });
+                        // this.meals = event;
+                    });
+                //Get Feeling
+                fetch('/data/feeling', {credentials: 'include'})
+                    .then(res => res.json())
+
+                    .then((response) => {
+                        // let jsonStr = JSON.stringify(response);
+                        // console.log('the ans is:', jsonStr)
+                        // let feelingObjectsArr = response.body;
+                        let feelingInCalendar = response.map(function (feeling) {
+                            return {
+                                id: feeling._id,
+                                backgroundColor: feeling.color,
+                                start: moment(feeling.time).format(),
+                                end: moment(feeling.time).add(1, 'hour').format(),
+                                allDay: false,
+                            };
+                        })
+                        this.feeling = feelingInCalendar;
+                        // $('.calendar').fullCalendar('removeEvents');
+                        $('.calendar').fullCalendar('addEventSource', this.feeling);
+                        $('.calendar').fullCalendar('rerenderEvents');
+
+                        //     // this.meals = event;
+                    });
+            }
         }
-    }
+
 </script>
 
 <style scoped lang="scss">
