@@ -1,3 +1,4 @@
+import {mapGetters, mapMutations} from 'vuex';
 import moment from 'moment';
 import AddButtons from '../add-buttons/add-buttons';
 export default {
@@ -31,12 +32,12 @@ export default {
         this.meal.splice(resIndex, 1);
     },
     submitMeal(meal) {
-      let foodJson = {name: meal, time: moment()};
-      let json = JSON.stringify(foodJson)
-      console.log('my json',json)
+      let foodJson = {name: meal, time: moment(), userId: this.user._id };
+    //   let json = JSON.stringify(foodJson)
+    //   console.log('my json',json)
       this.meal=[];
 
-      this.$http.post('http://localhost:3003/data/food', json).then((res) => {
+      this.$http.post('http://localhost:3003/data/food', foodJson).then((res) => {
         console.log('success',res.json());
         // success callback
       }, (err) => {
@@ -50,6 +51,12 @@ export default {
          moment,
         AddButtons
 },
+
+ computed: {
+      ...mapGetters([
+        'user'
+      ])
+  },
   mounted() {
         if (!('webkitSpeechRecognition' in window)) {
             console.log('webkitSpeechRecognition not supported');

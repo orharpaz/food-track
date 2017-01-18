@@ -17,6 +17,15 @@ function signin( {email,password} ) {
 
 
 }
+
+function signup (user ) {
+   return Vue.http.post('http://localhost:3003/data/user', {username: user.email, pass: user.password} )
+    .then(res => res.json())
+    // .then(({token, user}) => {
+    //   console.log('Signedup user:', user);
+    //   setSession(token, user);
+    //   return user;
+    }
 // function signinDummy( { email, password } ) {
 //   return new Promise(( resolve, reject ) => {
 //     if( password === '123456' ) {
@@ -39,15 +48,15 @@ function signin( {email,password} ) {
  * @param email
  * @param password
  */
-function signup( { email, password } ) {
-  const token = 'JWT';
-  return new Promise(resolve => {
-    resolve({
-      token
-    });
-    setSession(token);
-  });
-}
+// function signup( { email, password } ) {
+//   const token = 'JWT';
+//   return new Promise(resolve => {
+//     resolve({
+//       token
+//     });
+//     setSession(token);
+//   });
+// }
 
 /**
  *
@@ -92,5 +101,5 @@ export default {
   signout,
   setSession,
   isLoggedIn,
-  protectRoute,
+  protectRoute
 }

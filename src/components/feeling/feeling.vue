@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import {mapGetters, mapMutations} from 'vuex';
   import moment from 'moment';
 
 
@@ -57,6 +58,11 @@
       disabled: String,
       required: Boolean
     },
+    computed: {
+      ...mapGetters([
+        'user'
+      ])
+  },
     methods: {
       
      
@@ -97,13 +103,13 @@
 
         }
 
-        let feelingJson = { rating: value, color: color, time: moment() };
-        let json = JSON.stringify(feelingJson)
+        let feeling = { rating: value, color: color, time: moment(), userId: this.user._id };
+        // let json = JSON.stringify(feelingJson)
 
-        console.log('set submit', value);
+        // console.log('set submit', value);
        
 
-        this.$http.post('http://localhost:3003/data/feeling', json).then((res) => {
+        this.$http.post('http://localhost:3003/data/feeling', feeling).then((res) => {
           console.log('success', res.json());
           // success callback
         }, (err) => {
