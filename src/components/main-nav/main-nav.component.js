@@ -7,10 +7,8 @@ export default {
   name: 'main-nav',
   data() {
     return {
-      // windowWidth,
-      isShown: window.innerWidth > 360,
-      // isOpen : false
-
+      showMobileNav : false,
+ 
     }
   },
   watch:{

@@ -1,9 +1,9 @@
 <!--*************************************************************************-->
 
 <nav class="main-nav navbar-default flex align-center">
-  <input type="checkbox" id="main-nav__mobile-checkbox">
+  <input type="checkbox" id="main-nav__mobile-checkbox" v-model="showMobileNav">
   <label for="main-nav__mobile-checkbox" class="main-nav__mobile-icon">&#9776;</label>
-  <div class="main-nav__inner flex space-around">
+  <div class="main-nav__inner flex space-between">
     <ul class="clean-list main-nav__logo">
     <li>
        <a href="#">
@@ -11,7 +11,7 @@
       </a>
     </li>
     </ul>
-    <ul class="clean-list main-nav__items flex">
+    <ul class="clean-list main-nav__items flex" @click="showMobileNav=false">
       <li class="main-nav__item">
         <router-link :to="{ name: 'feeling' }">Feeling</router-link>
       </li>

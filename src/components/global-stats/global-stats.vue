@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="admin container below-nav">
+  <section class="sticky-footer container below-nav">
     <h1>global statistics Component</h1>
   </section>
 

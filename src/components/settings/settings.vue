@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="admin container below-nav">
+  <section class="sticky-footer container below-nav">
     <h1>Settings</h1>
     <!--<input v-model="message" placeholder="edit me">
       <p>Message is: {{ message }}</p>-->
