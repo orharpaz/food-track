@@ -1,5 +1,7 @@
 <template lang="html">
+
   <section class="feeling below-nav">
+
 
     <h3 class="rate-header flex justify-center ">Rate your Feeling</h3>
     <div class="star-rating flex justify-center">
@@ -20,6 +22,7 @@
                       <i class="fa fa-star singlStar" aria-hidden="true"></i>
                    </span>
                    
+
         </label>
 
     </div>
@@ -27,12 +30,16 @@
     <div class="feel-mealbtn flex justify-center">
       <button type="button" class="add-meal-btn"><router-link :to="{name: 'home'}">Add a Meal</router-link></button>
     </div>
+
 </template>
 
 <script>
   import moment from 'moment';
+
+
   export default {
     name: 'feeling-rating',
+
     data() {
       return {
         temp_value: null,
@@ -40,6 +47,7 @@
         value: null
       };
     },
+
     props: {
       name: String,
       id: String,
@@ -47,6 +55,8 @@
       required: Boolean
     },
     methods: {
+     
+
       star_over(index) {
         if (this.disabled == "true") {
           return;
@@ -93,13 +103,15 @@
           // error callback
           console.log('error');
         });
+        alert("Thank's for rating");
       }
-    }
+    },
   }
 
 </script>
 
 <style>
+
 .star-rating{
   margin: 10px 10px 10px 0px;
 }
@@ -147,8 +159,6 @@
 .add-meal-btn:active{
    box-shadow: inset -12px 12px 19px -2px rgba(249, 249, 249, 0.85);
 }
-
-
 
 
 </style>

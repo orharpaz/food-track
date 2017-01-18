@@ -17,3 +17,15 @@
   font-size: rem(14px);
   font-weight: bold;
 }
+
+.footer-below{
+   --below-footer-height: em(40px);  
+  background-color: lightseagreen;
+  height: var(--below-footer-height);
+  display: flex;
+  align-content: center;
+  margin-top: 40px;
+  // position:absolute;
+  bottom: 0;
+  
+}

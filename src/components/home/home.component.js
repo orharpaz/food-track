@@ -17,6 +17,19 @@ export default {
       if(this.currFood ==='') return;
       else this.meal.push(this.currFood)
     },
+    // A method for deleting a todo from the TDL 
+    deleteFood(food){
+        // this.todos.splice(todo, 1); //TODO: fix
+        let resIndex = 0;
+        let found = false;
+        this.meal.forEach(function(element, index){
+            if(element.currFood === food.currFood && !found){
+                resIndex =  index;
+                found = true;
+                }
+            });
+        this.meal.splice(resIndex, 1);
+    },
     submitMeal(meal) {
       let foodJson = {name: meal, time: moment()};
       let json = JSON.stringify(foodJson)

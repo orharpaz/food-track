@@ -40,7 +40,8 @@
 
 .add-buttons{
  padding: 0 60px 0 60px;
- margin-top: 20px;
+ margin: 20px 0 20px 0;
+ 
   
 }
 .add-meal-btn{
@@ -50,7 +51,7 @@
   width: 5em;
   height:5em;
   font-size: 1.5rem;
-  /*margin: 100px;*/
+
 }
 .add-meal-btn:active{
    box-shadow: inset -12px 12px 19px -2px rgba(249, 249, 249, 0.85);
@@ -66,7 +67,7 @@
   width: 5em;
   height:5em;
   font-size: 1.5rem;
-  /*margin: 100px;*/
+
 }
 .add-feel-btn:active{
    box-shadow: inset -12px 12px 19px -2px rgba(249, 249, 249, 0.85);
