@@ -34,7 +34,7 @@
 
     },
     mounted() {
-      this.$http.get('http://localhost:3003/data/stats')
+      fetch('data/stats',{credentials: 'include'})
         .then((res) => res.json())
         .then((resJson) => {
           this.stats = resJson;
