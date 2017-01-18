@@ -1,9 +1,9 @@
 
 // AVITAL
-// .input-approve{
-//   margin-top: 10px;
-//   margin-bottom: 30px
-// }
+.input-approve{
+  // margin-top: 10px;
+  margin-bottom: 10px
+}
 .btnPlus{
   // background-color: #00c853;
   // border: 1px solid #00c853;
@@ -93,15 +93,15 @@
 }
 
 
-@media (max-width: 375px) {
+@media (max-width: 360px) {
   .home{
-    max-width: 100%; 
+    // max-width: 100%; 
   }
   .stam{
-     width: 100%; 
+    //  width: 100%; 
   }
   .container{
-    width: 100%;  
+    width: 98%;  
   }
   .meal-input{
   margin-top: 10px;
