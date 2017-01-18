@@ -7,10 +7,8 @@ export default {
   name: 'main-nav',
   data() {
     return {
-      // windowWidth,
-      isShown: window.innerWidth > 360,
-      // isOpen : false
-
+      showMobileNav : false,
+ 
     }
   },
   watch:{
@@ -35,7 +33,7 @@ export default {
     } ,
     toggle() {
       // this.isShown = !this.isShown;
-      console.log('toggle?');
+      // console.log('toggle?');
     },
     signout() {
       authService.signout();

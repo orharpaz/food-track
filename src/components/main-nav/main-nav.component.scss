@@ -113,6 +113,7 @@
 .main-nav__item {
   text-transform: uppercase;
   font-size: rem-calc(14px);
+  text-align: center;
   margin-left: 4em;
   :hover {
        color: lightgreen !important;
@@ -120,8 +121,10 @@
   }
 
 .main-nav__inner {
-  width: 100%;
+  // width: 100%;
+  justify-content: flex-end;
 }
+
 
 @media (max-width: $mobile-breakpoint) {
   .main-nav {
@@ -130,10 +133,13 @@
   .main-nav__items {
     flex-direction: column;
     padding-left: 70px;
+    
   }
   .main-nav__item {
     margin-left:15px;
     margin-bottom: 1em;
+    letter-spacing: 0.08em;
+    
   }
   .main-nav__mobile-icon {
     display: block;

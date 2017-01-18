@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="feeling below-nav">
+  <section class="feeling sticky-footer below-nav">
 
 
     <h3 class="rate-header flex justify-center ">Rate your Feeling</h3>
