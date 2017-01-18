@@ -33,7 +33,7 @@ export default {
     } ,
     toggle() {
       // this.isShown = !this.isShown;
-      console.log('toggle?');
+      // console.log('toggle?');
     },
     signout() {
       authService.signout();
