@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="feeling below-nav">
+  <section class="feeling sticky-footer below-nav">
 
 
     <h3 class="rate-header flex justify-center ">Rate your Feeling</h3>
@@ -31,9 +31,12 @@
       <button type="button" class="add-meal-btn"><router-link :to="{name: 'home'}">Add a Meal</router-link></button>
     </div>
 
+    <vue-toastr ref="toastr"></vue-toastr>
+
 </template>
 
 <script>
+import {mapGetters, mapMutations} from 'vuex';
   import moment from 'moment';
 
 
@@ -41,6 +44,7 @@
     name: 'feeling-rating',
 
     data() {
+     
       return {
         temp_value: null,
         ratings: 5,
@@ -54,7 +58,13 @@
       disabled: String,
       required: Boolean
     },
+    computed: {
+      ...mapGetters([
+        'user'
+      ])
+  },
     methods: {
+      
      
 
       star_over(index) {
@@ -63,12 +73,14 @@
         }
         this.temp_value = this.value;
         this.value = index;
+       
       },
       star_out() {
         if (this.disabled == "true") {
           return;
         }
         this.value = this.temp_value;
+         
       },
       set(value) {
         let color = '';
@@ -91,19 +103,20 @@
 
         }
 
-        let feelingJson = { rating: value, color: color, time: moment() };
-        let json = JSON.stringify(feelingJson)
+        let feeling = { rating: value, color: color, time: moment(), userId: this.user._id };
+        // let json = JSON.stringify(feelingJson)
 
-        console.log('set submit', value);
+        // console.log('set submit', value);
+       
 
-        this.$http.post('http://localhost:3003/data/feeling', json).then((res) => {
+        this.$http.post('http://localhost:3003/data/feeling', feeling).then((res) => {
           console.log('success', res.json());
           // success callback
         }, (err) => {
           // error callback
           console.log('error');
         });
-        alert("Thank's for rating");
+         this.$refs.toastr.s("Thank you for letting us Know!");
       }
     },
   }

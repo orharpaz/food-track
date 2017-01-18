@@ -1,3 +1,47 @@
+<!--*************************************************************************-->
+
+<nav class="main-nav navbar-default flex align-center">
+  <input type="checkbox" id="main-nav__mobile-checkbox" v-model="showMobileNav">
+  <label for="main-nav__mobile-checkbox" class="main-nav__mobile-icon">&#9776;</label>
+  <div class="main-nav__inner flex space-between">
+    <ul class="clean-list main-nav__logo">
+    <li>
+       <a href="#">
+        <router-link to="/" class="navbar-brand">CodingAcadmey</router-link>
+      </a>
+    </li>
+    </ul>
+    <ul class="clean-list main-nav__items flex" @click="showMobileNav=false">
+      <li class="main-nav__item">
+        <router-link :to="{ name: 'feeling' }">Feeling</router-link>
+      </li>
+      <li class="main-nav__item">
+        <router-link :to="{name: 'calendar'}">Calendar</router-link>
+      </li>
+      <li class="main-nav__item">
+        <router-link :to="{name: 'userStats'}">My Stats</router-link>
+      </li>
+      <li class="main-nav__item">
+        <router-link :to="{name: 'globalStats'}">Global<br>Statistics</router-link>
+      </li>
+      <li class="main-nav__item">
+        <router-link :to="{name: 'settings'}">Settings</router-link>
+      </li>
+      <li class="main-nav__item" v-if="!isLoggedIn">
+        <router-link :to="{ name: 'signin' }">Sign in</router-link>
+      </li>
+      <li class="main-nav__item" v-if="!isLoggedIn">
+        <router-link :to="{ name: 'signup' }">Sign up</router-link>
+      </li>
+      <li class="main-nav__item" v-if="isLoggedIn">
+        <a href="#" @click="signout">Sign out</a>
+      </li>
+      <li class="main-nav__item" v-if="isLoggedIn">
+        <img src="~assets/profile.png" :title="user.username" class="profile-img" />
+      </li>
+    </ul>
+  </div>
+</nav>
 <!--<nav class="navbar navbar-default">
   <section class="container">-->
 
@@ -76,15 +120,17 @@
   <!--END none relvant seed stuff-->
 
 
-<!--<jhrfb>-->
+<!--<Avital & Adir FIxes>-->
 
-<nav class="main-nav  navbar-default flex align-center">
+<!--<nav class="main-nav navbar-default flex align-center">-->
   <!--<input type="checkbox" id="main-nav__mobile-checkbox">-->
-  <label @click="openDiv" for="main-nav__mobile-checkbox" class="main-nav__mobile-icon">&#9776;</label>
+  <!--<label @click="openDiv" for="main-nav__mobile-checkbox" class="main-nav__mobile-icon">&#9776;</label>
   <div ref="containDiv" class="main-nav__inner flex space-around">
     <ul class="clean-list main-nav__logo">
     <li>
-    <router-link to="/" class="navbar-brand">CodingAcadmey</router-link>
+       <a href="#">
+        <router-link to="/" class="navbar-brand">CodingAcadmey</router-link>
+      </a>
     </li>
     </ul>
     <ul class="clean-list main-nav__items flex">
@@ -117,4 +163,5 @@
       </li>
     </ul>
   </div>
-</nav>
+</nav>-->
+<!--END Avital & Adir FIxes-->

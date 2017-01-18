@@ -1,5 +1,5 @@
 <template lang="html">
-    <section class="admin container below-nav">
+    <section class="sticky-footer container below-nav">
         <h1>Meals Calendar</h1>
         <div class="calendar"></div>
     <div>
@@ -12,6 +12,7 @@
     import moment from 'moment';
     import jquery from 'jquery';
     import AddButtons from '../add-buttons/add-buttons';
+    import {mapGetters, mapMutations} from 'vuex';
 
     // window.jQuery = jQuery;
     var $ = window.jQuery = require('jquery');
@@ -43,6 +44,11 @@
             FullCalendar,
             AddButtons
         },
+
+    //      computed: {
+    //   ...mapGetters([
+    //     'user'
+    //   ]),
         created() {
 
             // this.$http.get('http://localhost:3003/data/food').then((response) => {

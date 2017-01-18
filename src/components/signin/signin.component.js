@@ -19,7 +19,7 @@ export default  {
 
       authService.signin(user).then(res => {
         this.$store.commit(SIGN_IN, res);
-        this.$router.go(-1);
+        this.$router.push({name: 'home'});
       }).catch(err => {
         err.json().then(res => this.error = res.error);
       })
