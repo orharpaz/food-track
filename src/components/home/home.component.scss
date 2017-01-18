@@ -55,6 +55,7 @@
     width: 1em;
     height:1.5em;
   font-size: 7rem;
+ 
 
 }
   .btnMic:active{
@@ -65,12 +66,12 @@
 .meal-input{
   margin-top: 1.5em;
   color: #2C3E50;
-  width: 20em;
+  width: 15em;
   height:50px;
   border:2px solid  #2C3E30;
   border-radius: 6px;
   font-size:2rem;
-  margin-left: 60px;
+  margin-left: 20px;
   padding-left:10px;
   
 }
@@ -94,6 +95,16 @@
 
 
 @media (max-width: 360px) {
+  .mbp {
+   position: relative;
+   text-align: center;
+  }
+  .anotherMbp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .home{
     // max-width: 100%; 
   }

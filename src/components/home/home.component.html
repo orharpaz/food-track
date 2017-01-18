@@ -12,22 +12,23 @@
             
               <div class= "flex justify-center">
                 <button type="button" class="btnMic" @click="startVoiceRecognition">
-                  <i class="fa fa-microphone icon-large"></i>
+                  <i class="fa fa-microphone icon-large mbp"></i>
                 </button>
               </div>
-              <div>
+              <div class= "mbp ">
                 <input v-model="currFood" type="text" class="meal-input" name="meal-input" placeholder="Enter your food">
                 <button type="button" class="btnPlus input-approve" @click="addFood()">
                 <i class="fa fa-plus" aria-hidden="true"></i> 
                 </button>
               </div>
+              
             <div class= "flex justify-center">
               <h1>Your Meal</h1>
             </div>
               <ul class="list-group" >
                 <li v-for="food in meal" class="list-group-item">
                     {{food}}
-                    <button class="btn btn-warning btn-xs pull-right" v-on:click="deleteFood(food)">
+                    <button class="btn btn-danger btn-xs pull-right" v-on:click="deleteFood(food)">
                         Delete
                     </button>
                   </li>
