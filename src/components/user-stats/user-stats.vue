@@ -2,16 +2,21 @@
 
   <section class="sticky-footer admin container below-nav">
     <h1>User statistics Component</h1>
-    <ul>
+    <!--<ul>
       <pre>{{stats}}</pre>
       <br> allDataFood: {{allDataFood}}
-      <br> allDataStats:{{allDataStats}}
+      <br>
+      <pre>allDataStats:{{allDataStats}}</pre>
+      <br> showArr:{{showArr}}
       <li v-for="currStat in stats">
         <div>{{...currStat.name}}</div>
         <div>{{currStat.rating}}</div>
       </li>
-    </ul>
-  </section>
+    </ul>-->
+    <button type="button" @click="computeStats">Calculate</button>
+    <button type="button" @click="renderChart">Show Results</button>
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+</section>
 
 </template>
 
@@ -24,16 +29,50 @@
 
         stats: {},
         allDataFood: [],
-        allDataStats: {}
-
+        allDataStats: {},
+        showArr: []
       }
     },
     methods: {
-    },
-    computed: {
+
+      computeStats() {
+        let objArr = this.allDataStats;
+        for (var key in objArr) {
+          let value = objArr[key];
+          this.showArr.push({
+            label: value.food,
+            y: value.rating
+          });
+          // renderChart();
+          console.log('value:', value);
+        }
+      },
+
+      renderChart () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+          theme: "theme2",//theme1
+          title: {
+            text: "Basic Column Chart - CanvasJS"
+          },
+          animationEnabled: false,   // change to true
+          data: [
+            {
+              // Change type to "bar", "area", "spline", "pie",etc.
+              type: "column",
+              dataPoints:this.showArr 
+            }
+          ]
+        });
+        chart.render();
+      }
 
     },
+
     mounted() {
+       
+    },
+    created() {
+
       this.$http.get('http://localhost:3003/data/stats')
         .then((res) => res.json())
         .then((resJson) => {
@@ -55,7 +94,7 @@
             let newRating = foodObj.rate;
             let newCount = foodObj.count;
 
-            
+
             // food is not in the statistics
             if (this.allDataStats[food] === undefined) {
               this.allDataStats[food] = {
@@ -63,55 +102,25 @@
                 rating: newRating,
                 count: 0
               };
-            
+
               // food is already in the stats array => update rating
-            } else {  
-              
+            } else {
+
               let currRate = this.allDataStats[food]['rating'];
-console.log('currRate', currRate);
+              console.log('currRate', currRate);
 
               let currCount = this.allDataStats[food]['count'];
-console.log('currCount', currCount);
+              console.log('currCount', currCount);
               let newRate = (currRate * currCount + newRating) / (currCount + 1);
-                  console.log('newRate',newRate);
-                  
+              console.log('newRate', newRate);
+
               this.allDataStats[food]['rating'] = newRate;
-  console.log('allDataStats', this.allDataStats[food]['rating']);              
+              console.log('allDataStats', this.allDataStats[food]['rating']);
             }
             this.allDataStats[food]['count']++;
+
           });
-              console.log('finalFoodObj', this.allDataStats);
-
-
-
-          //console.log('success with', res.body);
-          // console.log('success with', resJson);
-          // let statsObjArr = res.body
-          // // this.stats = statsObjArr;
-
-          // for (var key in statsObjArr) {
-          //   var obj = statsObjArr[key];
-          //   for (var prop in obj) {
-
-          //     this.stats.rating = obj[prop];
-          //     // this.stats.name = obj[prop]
-          //   }
-          // }
-
-
-
-          // for (var key in statsObjArr) {
-          //   var obj = statsObjArr[key];
-          //   for (var prop in obj) {
-          //     if (obj.hasOwnProperty(prop)) {
-          //       this.stats.push(prop + " = " + obj[prop])
-          //       console.log(prop + " = " + obj[prop]);
-          //     }
-          //   }
-
-          // }
-
-
+          console.log('finalFoodObj', this.allDataStats);
           // success callback
         }, (err) => {
           // error callback
@@ -122,7 +131,5 @@ console.log('currCount', currCount);
 </script>
 
 <style scoped lang="scss">
-  .admin {
 
-  }
 </style>

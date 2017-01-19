@@ -36,6 +36,7 @@
             }
         },
         methods: {
+            
 
         },
         components: {
@@ -50,6 +51,7 @@
     //     'user'
     //   ]),
         created() {
+            
 
             // this.$http.get('http://localhost:3003/data/food').then((response) => {
             //     console.log('the ans is:', response.json());
