@@ -36,13 +36,12 @@
 </script>
 
 <style scoped lang="scss">
+@import '../../scss/_vars';
 
 
 .add-buttons{
  padding: 0 60px 0 60px;
  margin: 20px 0 20px 0;
- 
-  
 }
 .add-meal-btn{
   background-color: #FF9800;
@@ -72,5 +71,15 @@
 .add-feel-btn:active{
    box-shadow: inset -12px 12px 19px -2px rgba(249, 249, 249, 0.85);
 }
+
+@media (max-width: $mobile-breakpoint) {
+  .add-meal-btn{
+    margin-right: 15px;
+  }
+  .add-feel-btn{
+    margin-left: 15px;
+  }
+}
+  
 
 </style>
