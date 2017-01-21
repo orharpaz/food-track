@@ -7,12 +7,13 @@
       <br> allDataFood: {{allDataFood}}
       <br>
       <pre>allDataStats:{{allDataStats}}</pre>
-      <br> showArr:{{showArr}}
+      <br>
       <li v-for="currStat in stats">
         <div>{{...currStat.name}}</div>
         <div>{{currStat.rating}}</div>
       </li>
     </ul>-->
+       showArr:{{showArr}}
     <button type="button" @click="computeStats">Calculate</button>
     <button type="button" @click="renderChart">Show Results</button>
     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
