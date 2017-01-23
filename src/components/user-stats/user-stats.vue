@@ -21,6 +21,7 @@
 </template>
 
 <script lang="js">
+import _ from '../../assets/canvas/canvasjs.min.js'
 
   export default {
 
@@ -33,6 +34,7 @@
         showArr: []
       }
     },
+  
     methods: {
       // computeStats() {
       //   let objArr = this.allDataStats;
