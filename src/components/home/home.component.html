@@ -1,4 +1,8 @@
- <section class="home container below-nav">
+   
+ <section class="home container below-nav background-pic">
+
+<!--<div class="background-pic" >
+<img src="~assets/profile.png" :title="user.username" class="profile-img" />-->
 
 <div class="stam flex justify-center">
   <!-- Header -->
@@ -35,7 +39,7 @@
               </ul>
             
               <div class="submit-meal flex justify-center">
-              <button type="button" class="btn-sumit btn btn-primary" @click="submitMeal(meal)">
+              <button type="button" class="btn-sumit btn btn-default" @click="submitMeal(meal)">
               <!--<i class="fa fa-check" aria-hidden="true"></i> -->
               Submit Meal
               </button>
@@ -61,6 +65,7 @@
   <!--v-if="meal.currFood.length > 0"-->
     
   </div>
+<!--</div>-->
  </section>
 
   <!-- Portfolio Grid Section -->

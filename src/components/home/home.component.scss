@@ -1,7 +1,14 @@
 
 // AVITAL
+.background-pic{
+  background: url(~assets/background1.jpg) no-repeat center center;
+  width: 100%;
+  height: 100%;
+}
+
 .submit-meal{
   margin-top: 15px;
+  
 }
 .add-feel-div{
   margin-top: 20px;
@@ -10,7 +17,7 @@
 .btnPlus{
   // background-color: #00c853;
   // border: 1px solid #00c853;
-  color: #E040FB;
+  color: white;
   // border-radius: 50%;
   // width: 3em;
   // height: 2em;
@@ -128,7 +135,7 @@
     //  width: 100%; 
   }
   .container{
-    width: 98%;  
+    width: 100%;  
   }
   .meal-input{
   margin-left: 10px;

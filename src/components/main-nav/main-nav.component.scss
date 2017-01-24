@@ -1,5 +1,5 @@
 .router-link-active {
-  color: #55DDE0 !important;
+  color: red !important;
 }
 
 
@@ -55,10 +55,11 @@
 }
 
 
-// .profile-img {
-//   height: 80px;
-//   display: inline-block
-// }
+.profile-img {
+  height: 80px;
+  width: 80px;
+  display: inline-block
+}
 // .isMenuShown{
 //   display:none;
 // }
@@ -88,7 +89,7 @@
   width:100%;
   top: 0;
   z-index: 1000;
-  color: #55DDE0;
+  color: #18AC0F;
     
 }
 
