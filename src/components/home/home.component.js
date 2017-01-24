@@ -16,7 +16,11 @@ export default {
     addFood(){
       console.log('plus clicked');
       if(this.currFood ==='') return;
-      else this.meal.push(this.currFood)
+      else {
+          this.meal.push(this.currFood);
+          this.currFood = '';
+
+      }
     },
     // A method for deleting a todo from the TDL 
     deleteFood(food){
@@ -37,7 +41,7 @@ export default {
     //   console.log('my json',json)
       this.meal=[];
 
-      this.$http.post('/data/food', foodJson).then((res) => {
+      this.$http.post('data/food', foodJson).then((res) => {
         console.log('success',res.json());
         // success callback
       }, (err) => {

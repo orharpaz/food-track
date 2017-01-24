@@ -1,5 +1,5 @@
 $container-width: 1063px;
-$mobile-breakpoint: 360px;
+$mobile-breakpoint: 375px;
 
 :root {
   /* Layout */
@@ -11,6 +11,12 @@ $mobile-breakpoint: 360px;
   /* Colors */
   --main-color: #626262;
   --sections-bg: #f0f0f0;
+
+  --orange: #FF6700;
+  --lightblue: #55DDE0;
+  --green: #18AC0F;
+  --white:#ffffff;
+  --black:#000000;
 }
 
 

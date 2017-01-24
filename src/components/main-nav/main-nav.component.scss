@@ -1,5 +1,5 @@
 .router-link-active {
-  color: lightgreen !important;
+  color: red !important;
 }
 
 
@@ -46,7 +46,8 @@
 
 .navbar-default .navbar-brand{
   color: #fff;
-  font-size: 20px;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 50px;
 }
 
 .dropdown > *:hover {
@@ -54,10 +55,11 @@
 }
 
 
-// .profile-img {
-//   height: 80px;
-//   display: inline-block
-// }
+.profile-img {
+  height: 80px;
+  width: 80px;
+  display: inline-block
+}
 // .isMenuShown{
 //   display:none;
 // }
@@ -69,21 +71,6 @@
 // }
 
 
-// @media (max-width: 360px) {
-//   .navbar{
-//     width:100%;
-//   }
-
-//   .nav-bar-mobile{
-//     display:block;
-//   }
-
-//  .icon-desktop{
-//   display:none;
-// }
-// }
-
-// <kjsdhfbkj>
 
 @import '../../scss/_vars';
 
@@ -92,7 +79,7 @@
   --main-nav-height: em(70px);  
   height: var(--main-nav-height);
   margin-bottom:0;
-  background: #2C3E50;
+  background: black;
   font-weight: 700;
   border: none;
   border-radius: 0;
@@ -102,6 +89,7 @@
   width:100%;
   top: 0;
   z-index: 1000;
+  color: #18AC0F;
     
 }
 
@@ -116,23 +104,31 @@
   text-align: center;
   margin-left: 4em;
   :hover {
-       color: lightgreen !important;
+       color: white !important;
     }
   }
 
 .main-nav__inner {
-  // width: 100%;
+  width: 100%;
   justify-content: flex-end;
+  margin-right: 70px;
+}
+
+.nav-container{
+  justify-content: flex-end;
+  width: 100%;
 }
 
 
 @media (max-width: $mobile-breakpoint) {
   .main-nav {
     display: block;
+    
   }
   .main-nav__items {
     flex-direction: column;
     padding-left: 70px;
+    
     
   }
   .main-nav__item {
@@ -147,9 +143,12 @@
     padding-left: 15px; 
     font-size: 2rem;
     cursor: pointer;
+     color: #18AC0F;
+    
   }
   .main-nav__logo {
     margin-bottom: 1em;
+   
   }
   .main-nav__inner {
     display: block;
@@ -164,6 +163,14 @@
     opacity: 0;
     transform-origin: left;
     margin-top:19px;
+    margin-right: 70px;
+  }
+.nav-container{
+  justify-content: center;
+      color:black;
+  }
+.router-link-active {
+  color: #18AC0F !important;
   }
 }
 
@@ -171,4 +178,5 @@
   transform: scaleX(1);
   opacity: 1;
   // font-size: 20px;
+  
 }
