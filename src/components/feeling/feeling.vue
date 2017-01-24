@@ -1,8 +1,6 @@
 <template lang="html">
 
   <section class="feeling sticky-footer below-nav">
-
-
     <h3 class="rate-header flex justify-center ">Rate your Feeling</h3>
     <div class="star-rating flex justify-center">
       <label class="star-rating__star" v-for="rating in ratings" v-bind:class="{'is-selected': ((value >= rating) && value != null), 'is-disabled': disabled}"
@@ -21,8 +19,7 @@
                     <span >
                       <i class="fa fa-star singlStar" aria-hidden="true"></i>
                    </span>
-                   
-
+                
         </label>
 
     </div>

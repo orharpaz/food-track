@@ -17,7 +17,7 @@
               </div>
               <div class= "mbp flex">
                 <input v-model="currFood" type="text" class="meal-input" name="meal-input" placeholder="Enter your food">
-                <button type="button" class="btnPlus input-approve" @click="addFood()">
+                <button type="button" class="btnPlus" @click="addFood()">
                 <i class="fa fa-plus" aria-hidden="true"></i> 
                 </button>
               </div>
@@ -34,8 +34,8 @@
                   </li>
               </ul>
             
-              <div class="input-approve flex justify-center">
-              <button type="button" class="btn btn-primary" @click="submitMeal(meal)">
+              <div class="submit-meal flex justify-center">
+              <button type="button" class="btn-sumit btn btn-primary" @click="submitMeal(meal)">
               <!--<i class="fa fa-check" aria-hidden="true"></i> -->
               Submit Meal
               </button>
@@ -46,7 +46,7 @@
                 <!--<div>
                   <button type="button" class="add-meal-btn">Add a Meal</button>
                 </div>-->
-                <div class="flex justify-center">
+                <div class="add-feel-div flex justify-center">
                   <button type="button" class="add-feel-btn"> <router-link :to="{name: 'feeling'}">How Do You Feel?</router-link></button>
                 </div>
               <!--</section>-->
