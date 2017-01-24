@@ -1,45 +1,23 @@
+
+
+@import '../../scss/_vars';
+
 .router-link-active {
   color: red !important;
 }
 
-
-// ul.dropdown-cart li .item:after{
-//   visibility: hidden;
-//   display: block;
-//   font-size: 0;
-//   content: " ";
-//   clear: both;
-//   height: 0;
-// }
-
-// ul.nav li.dropdown:hover > ul.dropdown-menu {
-//   display: block;
-// }
-
-@media (min-width: 979px) {
-  ul.nav li.dropdown:hover > ul.dropdown-menu {
-    display: block;
-  }
+#main-nav__mobile-checkbox:checked ~ .main-nav__inner {
+  transform: scaleX(1);
+  opacity: 1;
+  // font-size: 20px;
+  
 }
 
 
-// .navbar {
-//   margin-bottom:0;
-//   background: #2C3E50;
-//   font-weight: 700;
-//   border: none;
-//   border-radius: 0;
-//   height: 100px;
-//   padding-top:25px;
-//   position: fixed;
-//   width:100%;
-//   top: 0;
-//   z-index: 1000;
-// }
 
 .navbar-default .navbar-nav > li > a {
   color: #000;
-  font-size:14px;
+  font-size:12px;
   text-transform: uppercase;
   font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -54,26 +32,13 @@
   background: #fff;
 }
 
-
 .profile-img {
   height: 80px;
   width: 80px;
-  display: inline-block
+  display: inline-block;
+  position: relative;
+  top: -17px;
 }
-// .isMenuShown{
-//   display:none;
-// }
-// .nav-bar-mobile{
-//   display: none;
-// }
-// .icon-desktop{
-//   display:block;
-// }
-
-
-
-@import '../../scss/_vars';
-
 
 .main-nav {
   --main-nav-height: em(70px);  
@@ -84,12 +49,13 @@
   border: none;
   border-radius: 0;
   height: 100px;
-  padding-top:25px;
+  padding-top:35px;
   position: fixed;
   width:100%;
   top: 0;
   z-index: 1000;
   color: #18AC0F;
+  
     
 }
 
@@ -118,11 +84,17 @@
   justify-content: flex-end;
   width: 100%;
 }
+@media (min-width: 979px) {
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+  }
+}
 
 
 @media (max-width: $mobile-breakpoint) {
   .main-nav {
     display: block;
+    padding-top:25px;
     
   }
   .main-nav__items {
@@ -172,11 +144,7 @@
 .router-link-active {
   color: #18AC0F !important;
   }
+  .profile-img {
+   top: -5px;
 }
-
-#main-nav__mobile-checkbox:checked ~ .main-nav__inner {
-  transform: scaleX(1);
-  opacity: 1;
-  // font-size: 20px;
-  
 }
