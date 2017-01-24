@@ -7,11 +7,13 @@
     <ul class="clean-list main-nav__logo">
     <li>
        <a href="#">
-        <router-link to="/" class="navbar-brand">CodingAcadmey</router-link>
+        <router-link to="/" class="navbar-brand">TovLi</router-link>
       </a>
     </li>
     </ul>
+    <div class="nav-container flex flex-row">
     <ul class="clean-list main-nav__items flex" @click="showMobileNav=false">
+      
       <li class="main-nav__item">
         <router-link :to="{ name: 'feeling' }">Feeling</router-link>
       </li>
@@ -40,6 +42,7 @@
         <img src="~assets/profile.png" :title="user.username" class="profile-img" />
       </li>
     </ul>
+    </div>
   </div>
 </nav>
 <!--<nav class="navbar navbar-default">

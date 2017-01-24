@@ -15,7 +15,7 @@
                   <i class="fa fa-microphone icon-large mbp"></i>
                 </button>
               </div>
-              <div class= "mbp ">
+              <div class= "mbp flex">
                 <input v-model="currFood" type="text" class="meal-input" name="meal-input" placeholder="Enter your food">
                 <button type="button" class="btnPlus input-approve" @click="addFood()">
                 <i class="fa fa-plus" aria-hidden="true"></i> 
@@ -23,7 +23,7 @@
               </div>
               
             <div class= "flex justify-center">
-              <h1>Your Meal</h1>
+              <h2>Your Meal</h2>
             </div>
               <ul class="list-group" >
                 <li v-for="food in meal" class="list-group-item">

@@ -2,15 +2,18 @@
 // AVITAL
 .input-approve{
   // margin-top: 10px;
-  margin-bottom: 10px
+  // margin-bottom: 10px;
+  padding: 0px;
 }
 .btnPlus{
   // background-color: #00c853;
   // border: 1px solid #00c853;
   color: #E040FB;
   // border-radius: 50%;
-  width: 3em;
-  height: 2em;
+  // width: 3em;
+  // height: 2em;
+  margin-left: 30px;
+  padding: 0px;
   font-size: 3rem;
   font-weight:900;
   // box-shadow: none;
@@ -63,8 +66,16 @@
     border: 7px solid red;
   }
 
+.mbp {
+  position: relative;
+  text-align: center;
+  align-items:center;
+  margin-top: 30px;
+// padding-top:30px;
+}
+
 .meal-input{
-  margin-top: 1.5em;
+  // margin-top: 1.5em;
   color: #2C3E50;
   width: 15em;
   height:50px;
@@ -98,12 +109,15 @@
   .mbp {
    position: relative;
    text-align: center;
+   align-items:center;
+  
   }
-  .anotherMbp {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  // .anotherMbp {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+    
+  // }
 
   .home{
     // max-width: 100%; 
@@ -115,16 +129,21 @@
     width: 98%;  
   }
   .meal-input{
-  margin-top: 10px;
+  margin-left: 10px;
   color: #2C3E50;
-  width: 15em;
+  width: 14em;
   height:35px;
   border:2px solid  #2C3E30;
   border-radius: 6px;
   font-size:1rem;
   padding-left:10px;
-}
- 
+  } 
+  .btnPlus{
+  color: #E040FB;
+  margin-left: 20px; 
+    // width: 1em;
+    // height: 0.5em;
+  }
 }
 // AVITAL END
 
