@@ -23,12 +23,12 @@
       <li class="main-nav__item">
         <router-link :to="{name: 'userStats'}">My Stats</router-link>
       </li>
-      <li class="main-nav__item">
+      <!--<li class="main-nav__item">
         <router-link :to="{name: 'globalStats'}">Global<br>Statistics</router-link>
       </li>
       <li class="main-nav__item">
         <router-link :to="{name: 'settings'}">Settings</router-link>
-      </li>
+      </li>-->
       <li class="main-nav__item" v-if="!isLoggedIn">
         <router-link :to="{ name: 'signin' }">Sign in</router-link>
       </li>
