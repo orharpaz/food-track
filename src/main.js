@@ -11,7 +11,9 @@ import AddButtons from './components/add-buttons/add-buttons';
 import VueToastr from 'vue-toastr';
 
 // Vue.use(VueResource);
-Vue.http.options.root = 'http://localhost:3003';
+if(process.env.NODE_ENV === 'development'){
+  Vue.http.options.root = 'http://localhost:3004';
+}
 
 const app = new Vue({
   router,

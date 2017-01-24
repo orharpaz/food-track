@@ -1,26 +1,27 @@
 <template lang="html">
 
   <section class="sticky-footer admin container below-nav">
-    <h1>User statistics Component</h1>
+    <!--<h1>User statistics Component</h1>-->
     <!--<ul>
       <pre>{{stats}}</pre>
       <br> allDataFood: {{allDataFood}}
       <br>
       <pre>allDataStats:{{allDataStats}}</pre>
-      <br> showArr:{{showArr}}
+      <br>
       <li v-for="currStat in stats">
         <div>{{...currStat.name}}</div>
         <div>{{currStat.rating}}</div>
       </li>
     </ul>-->
-    <button type="button" @click="computeStats">Calculate</button>
-    <button type="button" @click="renderChart">Show Results</button>
+    <!--showArr:{{showArr}}-->
+    <!--<button type="button" @click="computeStats">Calculate</button>-->
     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
 </section>
 
 </template>
 
 <script lang="js">
+import _ from '../../assets/canvas/canvasjs.min.js'
 
   export default {
 
@@ -33,46 +34,46 @@
         showArr: []
       }
     },
+  
     methods: {
+      // computeStats() {
+      //   let objArr = this.allDataStats;
+      //   for (var key in objArr) {
+      //     let value = objArr[key];
+      //     this.showArr.push({
+      //       label: value.food,
+      //       y: value.rating
+      //     });
 
-      computeStats() {
-        let objArr = this.allDataStats;
-        for (var key in objArr) {
-          let value = objArr[key];
-          this.showArr.push({
-            label: value.food,
-            y: value.rating
-          });
-          // renderChart();
-          console.log('value:', value);
-        }
-      },
+      //     console.log('value:', value);
+      //   };
+      //   var chart = new CanvasJS.Chart("chartContainer", {
+      //     theme: "theme2",//theme1
+      //     title: {
+      //       text: "Basic Column Chart - CanvasJS"
+      //     },
+      //     animationEnabled: true,   // change to true
+      //     data: [
+      //       {
+      //         // Change type to "bar", "area", "spline", "pie",etc.
+      //         type: "column",
+      //         dataPoints: this.showArr,
+      //       }
+      //     ]
+      //   });
+      //   chart.render();
 
-      renderChart () {
-        var chart = new CanvasJS.Chart("chartContainer", {
-          theme: "theme2",//theme1
-          title: {
-            text: "Basic Column Chart - CanvasJS"
-          },
-          animationEnabled: false,   // change to true
-          data: [
-            {
-              // Change type to "bar", "area", "spline", "pie",etc.
-              type: "column",
-              dataPoints:this.showArr 
-            }
-          ]
-        });
-        chart.render();
-      }
+
+      // }
 
     },
 
     mounted() {
-       
+
+
     },
     created() {
-      fetch('data/stats',{credentials: 'include'})
+      fetch('data/stats', { credentials: 'include' })
         .then((res) => res.json())
         .then((resJson) => {
           this.stats = resJson;
@@ -121,6 +122,36 @@
           });
           console.log('finalFoodObj', this.allDataStats);
           // success callback
+          let value;
+          let objArr = this.allDataStats;
+          for (var key in objArr) {
+            value = objArr[key];
+            this.showArr.push({
+              label: value.food,
+              y: value.rating
+            });
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+              theme: "theme2",//theme1
+              title: {
+                text: "My Stats"
+              },
+              animationEnabled: true,   // change to true
+              data: [
+                {
+                  // Change type to "bar", "area", "spline", "pie",etc.
+                  type: "column",
+                  dataPoints: this.showArr,
+                }
+              ]
+            });
+            chart.render();
+
+
+          }
+
+
+          console.log('value:', value);
         }, (err) => {
           // error callback
           console.log('error');
