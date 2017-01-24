@@ -19,7 +19,7 @@ function signin( {email,password} ) {
 }
 
 function signup (user ) {
-   return Vue.http.post('http://localhost:3003/data/user', {username: user.email, pass: user.password} )
+   return Vue.http.post('/data/user', {username: user.email, pass: user.password} )
     .then(res => res.json())
     // .then(({token, user}) => {
     //   console.log('Signedup user:', user);

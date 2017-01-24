@@ -10,9 +10,10 @@ import MainFooter from './components/main-footer/index';
 import AddButtons from './components/add-buttons/add-buttons';
 import VueToastr from 'vue-toastr';
 
+
 // Vue.use(VueResource);
 if(process.env.NODE_ENV === 'development'){
-  Vue.http.options.root = 'http://localhost:3004';
+  Vue.http.options.root = 'http://localhost:3000';
 }
 
 const app = new Vue({

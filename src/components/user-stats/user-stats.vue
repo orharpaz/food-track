@@ -21,7 +21,7 @@
 </template>
 
 <script lang="js">
-import _ from '../../assets/canvas/canvasjs.min.js'
+// import _ from '/canvas/canvasjs.min.js';
 
   export default {
 
@@ -34,37 +34,13 @@ import _ from '../../assets/canvas/canvasjs.min.js'
         showArr: []
       }
     },
-  
+
+    // components: {
+    //   canvasJS
+    // },
+
+
     methods: {
-      // computeStats() {
-      //   let objArr = this.allDataStats;
-      //   for (var key in objArr) {
-      //     let value = objArr[key];
-      //     this.showArr.push({
-      //       label: value.food,
-      //       y: value.rating
-      //     });
-
-      //     console.log('value:', value);
-      //   };
-      //   var chart = new CanvasJS.Chart("chartContainer", {
-      //     theme: "theme2",//theme1
-      //     title: {
-      //       text: "Basic Column Chart - CanvasJS"
-      //     },
-      //     animationEnabled: true,   // change to true
-      //     data: [
-      //       {
-      //         // Change type to "bar", "area", "spline", "pie",etc.
-      //         type: "column",
-      //         dataPoints: this.showArr,
-      //       }
-      //     ]
-      //   });
-      //   chart.render();
-
-
-      // }
 
     },
 

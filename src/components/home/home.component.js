@@ -37,7 +37,7 @@ export default {
     //   console.log('my json',json)
       this.meal=[];
 
-      this.$http.post('http://localhost:3003/data/food', foodJson).then((res) => {
+      this.$http.post('/data/food', foodJson).then((res) => {
         console.log('success',res.json());
         // success callback
       }, (err) => {
