@@ -109,7 +109,7 @@ import {mapGetters, mapMutations} from 'vuex';
         // console.log('set submit', value);
        
 
-        this.$http.post('http://localhost:3003/data/feeling', feeling).then((res) => {
+        this.$http.post('data/feeling', feeling).then((res) => {
           console.log('success', res.json());
           // success callback
         }, (err) => {

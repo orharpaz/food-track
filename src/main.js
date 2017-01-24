@@ -12,7 +12,9 @@ import VueToastr from 'vue-toastr';
 
 // Vue.use(VueResource);
 if(process.env.NODE_ENV === 'development'){
-  Vue.http.options.root = 'http://localhost:3004';
+  Vue.http.options.root = 'http://localhost:3003';
+}else{
+  console.log(process.env.NODE_ENV);
 }
 
 const app = new Vue({
