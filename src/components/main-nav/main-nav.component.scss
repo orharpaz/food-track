@@ -13,13 +13,11 @@
   
 }
 
-
-
 .navbar-default .navbar-nav > li > a {
   color: #000;
   font-size:12px;
   text-transform: uppercase;
-  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .navbar-default .navbar-brand{
@@ -37,7 +35,7 @@
   width: 80px;
   display: inline-block;
   position: relative;
-  top: -17px;
+  top: -35px;
 }
 
 .main-nav {
@@ -49,16 +47,25 @@
   border: none;
   border-radius: 0;
   height: 100px;
-  padding-top:35px;
+  padding-top:25px;
   position: fixed;
   width:100%;
   top: 0;
   z-index: 1000;
   color: #18AC0F;
-  
-    
+  align-items:baseline;
+      
+}
+.main-nav__items{
+  padding-top: 20px;
 }
 
+.main-nav__inner {
+  width: 100%;
+  justify-content: flex-end;
+  margin-right: 70px;
+  // padding-top: 25px;
+}
 .main-nav__mobile-icon,
 #main-nav__mobile-checkbox {
   display: none;
@@ -74,11 +81,6 @@
     }
   }
 
-.main-nav__inner {
-  width: 100%;
-  justify-content: flex-end;
-  margin-right: 70px;
-}
 
 .nav-container{
   justify-content: flex-end;
