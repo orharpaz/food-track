@@ -116,7 +116,7 @@
               data: [
                 {
                   // Change type to "bar", "area", "spline", "pie",etc.
-                  type: "column",
+                  type: "pie",
                   dataPoints: this.showArr,
                 }
               ]
