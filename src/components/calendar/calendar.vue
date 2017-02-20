@@ -58,33 +58,7 @@
                 //     console.log('error');
                 // });
 
-            },
-            mounted() {
-                $('.calendar').fullCalendar({
-                    // put your options and callbacks here
-
-                    // hiddenDays: [  4, 5,6 ], //choose which days to hide
-                    // hiddenDays: [ 0, 1,2,3 ],
-
-                    header: { center: 'month, agendaWeek, listWeek' }, // buttons for switching between views
-                    views: {
-                        month: { // name of view
-                            titleFormat: 'YYYY, MM, DD' // name of view
-                            // other view-specific options here
-                        },
-                        agendaWeek: {
-                            titleFormat: 'YYYY, MM, DD'
-                        },
-                    },
-                    events: [...this.meals, ...this.feeling],
-
-
-                }),
-                    // console.log('user', this.user);
-
-                // , {credentials: 'include'}
-
-           fetch('/data/food', {credentials: 'include'})//.then((respone) => {
+                fetch('/data/food', {credentials: 'include'})//.then((respone) => {
                     .then(res => res.json())
                     .then((response) => {
                         // let jsonStr = JSON.stringify(response);
@@ -110,7 +84,6 @@
                 //Get Feeling
                 fetch('/data/feeling', {credentials: 'include'})
                     .then(res => res.json())
-
                     .then((response) => {
                         // let jsonStr = JSON.stringify(response);
                         // console.log('the ans is:', jsonStr)
@@ -131,6 +104,34 @@
 
                         //     // this.meals = event;
                     });
+
+            },
+            mounted() {
+                $('.calendar').fullCalendar({
+                    // put your options and callbacks here
+
+                    // hiddenDays: [  4, 5,6 ], //choose which days to hide
+                    // hiddenDays: [ 0, 1,2,3 ],
+
+                    header: { center: 'month, agendaWeek, listWeek' }, // buttons for switching between views
+                    views: {
+                        month: { // name of view
+                            titleFormat: 'YYYY, MM, DD' // name of view
+                            // other view-specific options here
+                        },
+                        agendaWeek: {
+                            titleFormat: 'YYYY, MM, DD'
+                        },
+                    },
+                    events: [...this.meals, ...this.feeling],
+
+
+                });
+                    // console.log('user', this.user);
+
+                // , {credentials: 'include'}
+
+           
             }
         }
 

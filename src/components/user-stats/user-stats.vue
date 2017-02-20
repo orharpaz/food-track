@@ -49,7 +49,7 @@
 
     },
     created() {
-      fetch('data/stats', { credentials: 'include' })
+      fetch('/data/stats', { credentials: 'include' })
         .then((res) => res.json())
         .then((resJson) => {
           this.stats = resJson;
