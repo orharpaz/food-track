@@ -1,5 +1,4 @@
 
-// AVITAL
 .background-pic{
   background: url(~assets/background1.jpg) no-repeat center center;
   width: 100%;
@@ -61,29 +60,29 @@
   font-size: 15em;
   margin:0.1em;
 }
-.mic-circle{
-   display:flex;
-   display: inline-block;
-   justify-content: center;
-   border: 7px solid #2C3E50;
-   border-radius: 50%;
-   margin-bottom: 4em;
-}
+// .mic-circle{
+//    display:flex;
+//    display: inline-block;
+//    justify-content: center;
+//    border: 7px solid #2C3E50;
+//    border-radius: 50%;
+//    margin-bottom: 4em;
+// }
 
 .btnMic{
   color: #2C3E50;
   color: #2C3E50;
-  border: 7px solid #2C3E50;
-  border-radius: 50%;
-    width: 1em;
-    height:1.5em;
+  // border: 7px solid #2C3E50;
+  // border-radius: 50%;
+  //   width: 1em;
+  //   height:1.5em;
   font-size: 7rem;
  
 
 }
   .btnMic:active{
     color:red;
-    border: 7px solid red;
+    // border: 7px solid red;
   }
 
 .mbp {

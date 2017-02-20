@@ -1,0 +1,42 @@
+<section class="home-container below-nav background-pic">
+    <div class="inner-container flex-row">
+        <div class="headers flex flex-column align-center">
+            <h1>Eat &amp; Feel Better, Daily</h1>
+            <h2>Keep Track of Your Meals &amp; How They Make You Feel</h2>
+            <h3>Start by recording your last meal</h3>
+        </div>
+        <div class= "mic flex justify-center">
+            <button type="button" class="btnMic flex justify-center" @click="startVoiceRecognition">
+                <!--<i class="fa fa-microphone icon-large mbp"></i>-->
+                <img src="~assets/microphone.png"/>
+            </button>
+            </div>
+
+        <div class= "mbp flex justify-center">
+            <input v-model="currFood" type="text" class="meal-input" name="meal-input" placeholder="Enter your food">
+                <button type="button" class="btnPlus" @click="addFood()">
+            <i class="fa fa-plus" aria-hidden="true"></i> 
+            </button>
+        </div>
+
+        <ul class="list-group flex flex-column justify-center" >
+            <li v-for="food in meal" class="list-group-item">
+                {{food}}
+                <button class="btn btn-danger btn-xs pull-right" v-on:click="deleteFood(food)">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+                </li>
+        </ul>
+
+        <div class="submit-meal flex justify-center">
+            <button type="button" class="btn-submit" @click="submitMeal(meal)">
+                That's it for now
+            </button>
+            </div>
+
+        <div class="add-feel-div flex justify-center">
+            <button type="button" class="add-feel-btn"> <router-link :to="{name: 'feeling'}">How Do You Feel?</router-link></button>
+        </div>
+
+      </div>
+ </section>
