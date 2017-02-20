@@ -49,7 +49,7 @@
 
     },
     created() {
-      fetch('data/stats', { credentials: 'include' })
+      fetch('/data/stats', { credentials: 'include' })
         .then((res) => res.json())
         .then((resJson) => {
           this.stats = resJson;
@@ -116,7 +116,7 @@
               data: [
                 {
                   // Change type to "bar", "area", "spline", "pie",etc.
-                  type: "column",
+                  type: "pie",
                   dataPoints: this.showArr,
                 }
               ]
