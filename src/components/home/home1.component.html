@@ -13,10 +13,21 @@
             </div>
 
         <div class= "mbp flex justify-center">
-            <input v-model="currFood" type="text" class="meal-input" name="meal-input" placeholder="Enter your food">
-                <button type="button" class="btnPlus" @click="addFood()">
-            <i class="fa fa-plus" aria-hidden="true"></i> 
-            </button>
+            <div>
+             <input v-model="currFood" type="text" class="meal-input" name="meal-input" placeholder="Enter your food">
+            </div>
+            <div>
+                <div>
+                    <button type="button" class="btnPlus" @click="addFood()">
+                    <i class="fa fa-plus" aria-hidden="true"></i> 
+                    </button>
+                </div>
+                <div class="submit-meal flex justify-center">
+                    <button type="button" class="btn-submit" @click="submitMeal(meal)">
+                        That's it for now
+                    </button>
+                </div>
+        </div>
         </div>
 
         <ul class="list-group flex flex-column justify-center" >
@@ -28,11 +39,6 @@
                 </li>
         </ul>
 
-        <div class="submit-meal flex justify-center">
-            <button type="button" class="btn-submit" @click="submitMeal(meal)">
-                That's it for now
-            </button>
-            </div>
 
         <div class="add-feel-div flex justify-center">
             <button type="button" class="add-feel-btn"> <router-link :to="{name: 'feeling'}">How Do You Feel?</router-link></button>
